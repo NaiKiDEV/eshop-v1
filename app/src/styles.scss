@@ -1,0 +1,108 @@
+$black: #272727;
+$lightblack: #363636;
+$darkgrey: #5c5c5c;
+$grey: #747474;
+$lightgreen: #1cd189;
+$green: #14A76C;
+$darkgreen: #0e8a73;
+$red: #FF652F;
+$darkred: #c54e23;
+$yellow: #FFE400;
+$white: #FFF;
+$borderradius: 3px;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: $lightblack;
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar{
+    background-color: $black;
+}
+
+.card{
+    background-color: $black;
+    color: $lightgreen;
+    border-radius: 0;
+    border: 0;
+}
+
+.form-control{
+    background-color: $lightblack;
+    border: 0;
+    border-radius: $borderradius;
+    box-shadow: none;
+    color: $green !important;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-bottom: 2px solid $lightblack;
+}
+label{
+    text-transform: uppercase;
+}
+.form-control:active, .form-control:focus, .form-control:hover{
+    background-color: $lightblack;
+    box-shadow: none;
+    border-bottom: 2px solid $darkgreen;
+}
+.btn{
+    box-shadow: none;
+    border: 0;
+    border-radius: $borderradius;
+}
+.btn:active, .btn:focus, .btn:hover{
+    box-shadow: none;
+    border: $borderradius;
+}
+.btn-green{
+    background-color: $green;
+    color: $white;
+}
+.btn-green:hover{
+    background-color: $darkgreen;
+    color: $white;
+}
+.btn-red{
+    background-color: $red;
+    color: $white;
+}
+.btn-red:hover{
+    background-color: $darkred;
+    color: $white;
+}
+.btn-register{
+    width: 100%;
+    font-size: 20px;
+}
+.text-lightgreen{
+    color: $lightgreen;
+}
+.text-green{
+    color: $green;
+}
+.text-darkgreen{
+    color: $darkgreen;
+}
+.letter-shadow-green{
+    text-shadow: 3px 1px 0px $lightblack;
+}
+.letter-shadow-sm{
+    text-shadow: 1px 1px 10px $lightblack;
+}
+
+.alert-green{
+    background-color: $green;
+    color: $white;
+    border: 2px solid $lightgreen;
+}
+.alert-red{
+    background-color: $darkred;
+    color: $white;
+    border: 2px solid $red;
+}

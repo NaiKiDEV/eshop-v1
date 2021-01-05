@@ -8,7 +8,7 @@ const { getCurrentDate } = require('../utils')
 console.log("[SERVER] loading /orders endpoint")
 console.log("Date test:", getCurrentDate())
 
-router.get('/userorders', function (req, res, next) {
+router.post('/userorders', function (req, res, next) {
     const { _id, email } = req.body
     console.log(req.body)
     MongoClient.connect(DB_FULLURL, (err, client) => {
@@ -96,7 +96,7 @@ router.get('/all', function (req, res, next) {
 });
 
 /* GET products listing. */
-router.get('/order', function (req, res, next) {
+router.post('/order', function (req, res, next) {
     const { _id } = req.body
     MongoClient.connect(DB_FULLURL, (err, client) => {
         if (err) {
@@ -231,7 +231,6 @@ router.post('/update', (req, res) => {
         }
         // Get db
         var db = client.db(DB_NAME)
-        // Try to find if there are users with given email
         try {
             if (Object.values(PRODUCT_CODES).indexOf(orderstatus) > -1) {
                 db.collection('orders')

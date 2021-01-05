@@ -125,13 +125,13 @@ router.post('/create', (req, res) => {
 							res.status(200).send({ message: "User added successfully.", ok: 1 })
 							console.log("User added successfully.")
 						} else {
-							res.status(200).send({ message: "User wasn't added." })
+							res.status(200).send({ message: "User wasn't added.", error: 1 })
 							console.log("User wasn't added.")
 						}
 					}
 					)
 			} else {
-				res.status(200).send({ message: "User already exists." })
+				res.status(200).send({ message: "User already exists.", error: 1 })
 				console.log("User already exists.")
 			}
 		})
