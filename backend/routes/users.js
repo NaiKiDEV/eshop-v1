@@ -2,17 +2,17 @@ var express = require('express');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient
 const { DB_FULLURL, DB_NAME } = require('../config')
-var crypto = require('crypto');
+const { getHash } = require('../utils')
+
 
 console.log("DB URL:", DB_FULLURL)
 console.log("DB NAME:", DB_NAME)
 
-function hash(message) {
-	return crypto.createHash('sha256').update(message).digest('hex');
-}
+console.log("[SERVER] loading /users endpoint")
 
-console.log("Hash test: ", hash("password"))
 console.log("If there is an error (npm install crypto).")
+console.log("Hash test: ", getHash("password"))
+
 
 /* GET users listing. */
 router.get('/all', function (req, res, next) {
@@ -105,7 +105,7 @@ router.post('/create', (req, res) => {
 			console.log("Found users with given email ", result.length)
 			// If there are no users with given email
 			if (result.length === 0) {
-				var hashedpass = hash(password);
+				var hashedpass = getHash(password);
 				db.collection('users').insertOne({ email: email, password: hashedpass })
 					.then(response => JSON.parse(response))
 					.then(response => {
@@ -126,5 +126,7 @@ router.post('/create', (req, res) => {
 		})
 	})
 })
+
+console.log("[SERVER] loading /users endpoint complete \n")
 
 module.exports = router;
