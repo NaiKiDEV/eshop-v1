@@ -219,6 +219,47 @@ router.post('/delete', (req, res) => {
     })
 })
 
+router.post('/update', (req, res) => {
+    console.log("Request with body:", req.body)
+    const { _id, orderstatus } = req.body
+    MongoClient.connect(DB_FULLURL, function (err, client) {
+        if (err) {
+            console.log("[SERVER] connection failed")
+            res.status(400).send({ message: "Failed to connect to the server.", error: 1 })
+            return
+            // throw err
+        }
+        // Get db
+        var db = client.db(DB_NAME)
+        // Try to find if there are users with given email
+        try {
+            if (Object.values(PRODUCT_CODES).indexOf(orderstatus) > -1) {
+                db.collection('orders')
+                    .findOneAndUpdate({ _id: new ObjectID(_id) }, { $set: { orderstatus: orderstatus } })
+                    .then(response => {
+                        console.log(response)
+                        if (response.ok) {
+                            res.status(200).send({ message: "Order was updated successfully.", ok: 1 })
+                            console.log("Order was updated successfully.")
+                        } else {
+                            res.status(200).send({ message: "Order wasn't updated.", error: 1 })
+                            console.log("Order wasn't updated.")
+                        }
+                    })
+            } else {
+                res.status(200).send({ message: "You provided invalid productstatus code.", error: 1 })
+            }
+
+        } catch (e) {
+            res.status(400).send({ message: "Incorrect _id value, must be 12bits", error: 1 })
+            console.log("_id was incorrect", _id)
+            throw e
+            return
+        }
+
+    })
+})
+
 
 
 console.log("[SERVER] loading /orders endpoint complete \n")
