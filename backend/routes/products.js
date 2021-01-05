@@ -54,7 +54,7 @@ router.post('/delete', (req, res) => {
                     // throw err
                 }
                 console.log("Found products ", result.length)
-                // If there are no users with given email
+                // If there are no products with given name
                 if (result.length === 1) {
                     db.collection('products')
                         .deleteOne({ $or: [{ name: name }, { _id: new ObjectID(_id) }] })
@@ -114,7 +114,8 @@ router.post('/create', (req, res) => {
                             description,
                             categories,
                             images,
-                            stock
+                            stock,
+                            created: getCurrentDate()
                         })
                         .then(response => JSON.parse(response))
                         .then(response => {

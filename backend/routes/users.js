@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient
 const { DB_FULLURL, DB_NAME } = require('../config')
-const { getHash } = require('../utils')
+const { getHash, getCurrentDate } = require('../utils')
 
 
 console.log("DB URL:", DB_FULLURL)
@@ -84,7 +84,7 @@ router.post('/delete', (req, res) => {
 
 router.post('/create', (req, res) => {
 	console.log("Request with body:", req.body)
-	const { email, password } = req.body
+	const { email, password, address, zipcode, creditcard, phone, name, surname } = req.body
 	MongoClient.connect(DB_FULLURL, function (err, client) {
 		if (err) {
 			console.log("[SERVER] connection failed")
@@ -106,7 +106,18 @@ router.post('/create', (req, res) => {
 			// If there are no users with given email
 			if (result.length === 0) {
 				var hashedpass = getHash(password);
-				db.collection('users').insertOne({ email: email, password: hashedpass })
+				db.collection('users').insertOne(
+					{
+						email,
+						password: hashedpass,
+						name,
+						surname,
+						address,
+						zipcode,
+						creditcard,
+						phone,
+						created: getCurrentDate()
+					})
 					.then(response => JSON.parse(response))
 					.then(response => {
 						console.log(response)
