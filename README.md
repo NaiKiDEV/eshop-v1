@@ -1,5 +1,6 @@
 # NaiKiDev E.Shop v1.0
-Below you will find the stack used and how to run the app.
+Below you will find documentation of the stack used and how to run the app.
+Note: This is not a course/academy project, nor is it presented in any of the youtube tutorial videos. All of this is coded for learning/portfolio purposes using documentation and my current knowledge of the website development. I would appreciate any comments and ideas to improve this project.
 
 ## Stack
 #### Front
@@ -34,3 +35,5 @@ Use your prefered terminal:
   * ```db.products.insert({})```
   * ```db.orders.insert({})```
 * Use ```show collections``` to see if you successfully created the architecture.
+* Finally exit out of ```mongo``` shell using ```exit()``` or ```CTRL + C```.
+* Now execute command ```mongod```, this will run the server and you will be good to go!
