@@ -1,6 +1,6 @@
 # NaiKiDev E.Shop v1.0
-Below you will find documentation of the stack used and how to run the app.
-Note: This is not a course/academy project, nor is it presented in any of the youtube tutorial videos. All of this is coded for learning/portfolio purposes using documentation and my current knowledge of the website development. I would appreciate any comments and ideas to improve this project.
+### Below you will find documentation of the stack used and how to run the app.
+##### Note: This is not a course/academy project, nor is it presented in any of the youtube tutorial videos. All of this is coded for learning/portfolio purposes using documentation and my current knowledge of the website development. I would appreciate any comments and ideas to improve this project.
 
 ## Stack
 #### Front
