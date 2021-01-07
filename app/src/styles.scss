@@ -2,13 +2,14 @@ $black: #272727;
 $lightblack: #363636;
 $darkgrey: #5c5c5c;
 $grey: #747474;
-$lightgreen: #1cd189;
+$blue: #1cd189;
 $green: #14A76C;
 $darkgreen: #0e8a73;
 $red: #FF652F;
 $darkred: #c54e23;
 $yellow: #FFE400;
 $white: #FFF;
+
 $borderradius: 3px;
 
 $blue: #49C5B1;
@@ -17,33 +18,29 @@ $darkblue: #2D3750;
 $lightdarkblue: #384967;
 $lightblue: #A2B2C8;
 
-$lightgreen: $blue;
-$black: $darkblue;
-$lightblack: $lightdarkblue;
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 
 html, body{
     height: 100%;
     width: 100%;
-    background-color: $lightblack;
+    background-color: $lightdarkblue;
     font-family: "Poppins", sans-serif;
 }
 
 .navbar{
-    background-color: $black;
+    background-color: $darkblue;
 }
 
 .card{
-    background-color: $black;
-    color: $lightgreen;
+    background-color: $darkblue;
+    color: $blue;
     border-radius: $borderradius;
     border: 0;
 }
 
 .form-control{
-    background-color: $lightblack;
+    background-color: $lightdarkblue;
     border: 0;
     border-radius: $borderradius;
     box-shadow: none;
@@ -51,62 +48,69 @@ html, body{
     font-size: 18px;
     padding: 5px 10px;
     border-bottom: 2px solid $lightdarkblue;
+
+    &:active, &:focus{
+        background-color: $lightdarkblue;
+        box-shadow: none;
+        border-bottom: 2px solid $lightblue;
+    }
 }
 label{
     text-transform: uppercase;
-}
-.form-control:active, .form-control:focus, .form-control:hover{
-    background-color: $lightblack;
-    box-shadow: none;
-    border-bottom: 2px solid $lightblue;
 }
 .btn{
     box-shadow: none;
     border: 0;
     border-radius: $borderradius;
 }
-.btn:active, .btn:focus, .btn:hover{
-    box-shadow: none;
-    border: $borderradius;
+.btn{
+    &:active, &:focus, &:hover{
+        box-shadow: none;
+        border: $borderradius;
+    }
 }
-.btn-green{
+.btn-blue{
     background-color: $mutedblue;
-    color: $lightblue;
-}
-.btn-green:hover{
-    background-color: $blue;
     color: $white;
+
+    &:hover{
+        background-color: $blue;
+        color: $white;
+    }
 }
 .btn-red{
     background-color: $darkred;
-    color: $lightblue;   
-}
-.btn-red:hover{
-    background-color: $red;
     color: $white;
+
+    &:hover{
+        background-color: $red;
+        color: $white;
+    }
 }
-.btn-greeninverted{
-    background-color: $blue;
-    color: $white;
-}
-.btn-greeninverted:hover{
-    background-color: $mutedblue;
-    color: $white;
+.btn-blueinverted{
+    background-color: $darkblue;
+    color: $blue;
+
+    &:hover{
+        background-color: $darkblue;
+        color: $mutedblue;
+    }
 }
 .btn-redinverted{
-    background-color: $red;
-    color: $white;   
-}
-.btn-redinverted:hover{
-    background-color: $darkred;
-    color: $white;
+    background-color: $darkblue;
+    color: $red; 
+
+    &:hover{
+        background-color: $darkblue;
+        color: $darkred;
+    }  
 }
 .btn-register{
     width: 100%;
     font-size: 20px;
 }
-.text-lightgreen{
-    color: $lightgreen;
+.text-blue{
+    color: $blue;
 }
 .text-green{
     color: $green;
@@ -124,22 +128,26 @@ label{
     color: $lightdarkblue;
 }
 
+a{
+    color: inherit;
+    font-family: "Poppins";
+    
+    &:hover{
+        color: inherit;
+    }
+}
+
 .letter-shadow-green{
-    text-shadow: 2px 1px 0px $lightblack;
+    text-shadow: 2px 1px 0px $lightdarkblue;
 }
 .letter-shadow-sm{
-    text-shadow: 1px 1px 0px $lightblack;
+    text-shadow: 1px 1px 0px $lightdarkblue;
 }
 
 .alert-green{
     background-color: $green;
     color: $white;
-    border: 2px solid $lightgreen;
-}
-.alert-blue{
-    background-color: $darkblue;
-    color: $blue;
-    border: 2px solid $lightdarkblue;
+    border: 2px solid $blue;
 }
 .alert-blue{
     background-color: $darkblue;

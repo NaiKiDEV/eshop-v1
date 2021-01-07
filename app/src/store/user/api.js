@@ -9,3 +9,7 @@ export const getUserApi = () => {
 export const registerUserApi = (userData) => {
   return httpClient.post(`users/create`, userData);
 };
+
+export const loginUserApi = (userData) => {
+  return httpClient.post(`users/login`, userData);
+};

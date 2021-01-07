@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 function Register() {
 
     const user = useSelector(state => state.user)
-    console.log(user)
     const dispatch = useDispatch()
 
     const [data, setData] = useState({
@@ -78,11 +77,8 @@ function Register() {
                                                 />
                                                 <small className="text-mutedblue">By pressing Register, you are accepting to our Terms and conditions.</small>
                                             </div>
-                                            <div className="col-6 mb-4 d-flex justify-content-center">
-                                                <button className="btn btn-green btn-register text-uppercase letter-shadow-sm shadow me-3" onClick={() => onSubmit()}>Register</button>
-                                            </div>
-                                            <div className="col-6 mb-4 d-flex justify-content-center">
-                                                <button className="btn btn-red btn-register text-uppercase letter-shadow-sm shadow">Login</button>
+                                            <div className="col-6 offset-6 mb-4 d-flex justify-content-center">
+                                                <button className="btn btn-blue btn-register text-uppercase letter-shadow-sm shadow me-3" onClick={() => onSubmit()}>Register</button>
                                             </div>
                                         </div>
                                     </div>

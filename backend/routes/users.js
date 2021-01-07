@@ -28,7 +28,7 @@ router.get('/all', function (req, res, next) {
 				res.status(400).send({ message: "Failed to connect to the users database.", error: 1 })
 			}
 			if (result.length > 0) {
-				res.status(200).send(result.map(user => { return { ...user, password: "this property is hidden from public usage" } }))
+				res.status(200).send(result.map(user => { return { ...user, password: null } }))
 				console.log("All users:", result)
 			} else {
 				res.status(200).send({ ok: 1, message: "There are no users." })
@@ -51,7 +51,7 @@ router.post('/login', function (req, res, next) {
 				.then((result) => {
 					if (result) {
 						if (getHash(password) == result.password) {
-							res.status(200).send({ ...result, password: null })
+							res.status(200).send({ ok: 1, message: "Logged in successfully.", user: { ...result, password: null } })
 						} else {
 							res.status(200).send({ error: 1, message: "Incorrect password." })
 						}
