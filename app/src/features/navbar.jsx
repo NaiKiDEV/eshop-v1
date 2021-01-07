@@ -29,10 +29,22 @@ function Navbar() {
             </nav>
             <div className="container">
                 <div className="row">
-                    <div className="col-3 offset-9">
+                    <div className="col-2 offset-8 position-absolute ">
                         <div className="important-messages mt-2">
-                            {(user.requestcode === 1 && user.isLoggedIn == true) ?
-                                <div className="alert alert-blue py-2 shadow">{user.message}</div> :
+                            {(user.isLoggedIn == true) ?
+                                (user.requestcode === 1 ?
+                                    <div className="alert alert-blue py-2 shadow">{user.message}</div> :
+                                    ""
+                                )
+                                :
+                                ""
+                            }
+                            {(user.isLoggedIn == false) ?
+                                (user.requestcode === 99 ? // Logout code with message
+                                    <div className="alert alert-red py-2 shadow">{user.message}</div> :
+                                    ""
+                                )
+                                :
                                 ""
                             }
                         </div>

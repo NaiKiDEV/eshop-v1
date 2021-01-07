@@ -48,7 +48,7 @@ function Login() {
                                             <div className="col-12">
                                                 {user.requestcode != null ? (user.requestcode === 0 ?
                                                     <div className="alert alert-red shadow">{user.message}</div> :
-                                                    <div className="alert alert-blue shadow">{user.message} Redirecting to the shop...</div>) : ""}
+                                                    "") : ""}
                                                 {/* <div className="alert alert-blue py-2 shadow">Successfully created user.</div>
                                                 <div className="alert alert-red py-2 shadow">User already exists.</div> */}
                                             </div>

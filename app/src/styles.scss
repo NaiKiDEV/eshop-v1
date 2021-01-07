@@ -127,11 +127,42 @@ label{
 .text-lightdarkblue{
     color: $lightdarkblue;
 }
+.text-darkblue{
+    color: $darkblue;
+}
+.text-red{
+    color: $red;
+}
+
+.bg-blue{
+    background-color: $blue;
+}
+.bg-green{
+    background-color: $green;
+}
+.bg-darkgreen{
+    background-color: $darkgreen;
+}
+.bg-mutedblue{
+    background-color: $mutedblue;
+}
+.bg-lightblue{
+    background-color: $lightblue;
+}
+.bg-lightdarkblue{
+    background-color: $lightdarkblue;
+}
+.bg-darkblue{
+    background-color: $darkblue;
+}
+
+
+
 
 a{
     color: inherit;
     font-family: "Poppins";
-    
+
     &:hover{
         color: inherit;
     }
@@ -158,4 +189,62 @@ a{
     background-color: $darkblue;
     color: $red;
     border: 2px solid $red;
+}
+
+.image-fit{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.item-name{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    text-align: end;
+}
+
+.item-description{
+    font-size: 13px;
+    height: 35px;
+}
+
+.item-price{
+    transition: 0.5s ease;
+    height: 0px;
+}
+.item-pricetag{
+    display: none;
+}
+
+.card:hover .item-price{
+    height: 35px;
+}
+.card:hover .item-icon, .card:hover .item-pricetag{
+    display: block;
+    color: $darkblue;
+}
+
+.card-holder{
+    transition: 0.5s ease;
+    padding-bottom: 35px;
+    &:hover{
+        padding-bottom: 0 !important;
+    }
+}
+
+.card-footer{
+
+
+}
+
+.item-icon{
+    display: none;
+    color: $lightblue;
+    transition: 0.2s ease;
+    &:hover{
+        color: $red !important;
+        cursor: pointer;
+    }
 }

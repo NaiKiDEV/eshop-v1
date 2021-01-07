@@ -34,7 +34,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         userData: null,
-        isLoggedIn: false
+        isLoggedIn: false,
+        requestcode: 99,
+        message: "Logged out!"
       }
     }
     case REGISTER_USER_END: {
