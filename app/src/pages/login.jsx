@@ -44,8 +44,10 @@ function Register() {
                                             </div>
                                             <div className="col-12">
                                                 {user.requestcode != null ? (user.requestcode === 1 ?
-                                                    <div className="alert alert-blue py-2 shadow">{user.message}</div> :
-                                                    <div className="alert alert-red py-2 shadow">{user.message}</div>) : ""}
+                                                    <div className="alert alert-green shadow">Successfully created user.</div> :
+                                                    <div className="alert alert-red shadow">User already exists.</div>) : ""}
+                                                {/* <div className="alert alert-blue py-2 shadow">Successfully created user.</div>
+                                                <div className="alert alert-red py-2 shadow">User already exists.</div> */}
                                             </div>
                                             <div className="col-12 mb-4">
                                                 <label htmlFor="email" className="letter-shadow-green"><h5>Email</h5></label>
@@ -54,35 +56,17 @@ function Register() {
                                                     onChange={(e) => handleChange(e)}
                                                     value={data.email}
                                                 />
-                                                <label htmlFor="name" className="letter-shadow-green"><h5>Name</h5></label>
-                                                <input className="form-control shadow-sm mb-3" type="text" name="name" id="name"
-                                                    autoComplete="off"
-                                                    onChange={(e) => handleChange(e)}
-                                                    value={data.name}
-                                                />
-                                                <label htmlFor="surname" className="letter-shadow-green"><h5>Surname</h5></label>
-                                                <input className="form-control shadow-sm mb-3" type="text" name="surname" id="surname"
-                                                    autoComplete="off"
-                                                    onChange={(e) => handleChange(e)}
-                                                    value={data.surname}
-                                                />
                                                 <label htmlFor="password" className="letter-shadow-green"><h5>Password</h5></label>
                                                 <input className="form-control shadow-sm mb-3" type="password" name="password" id="password"
                                                     onChange={(e) => handleChange(e)}
                                                     value={data.password}
                                                 />
-                                                <label htmlFor="confirmedpassword" className="letter-shadow-green"><h5>Confirm Password</h5></label>
-                                                <input className="form-control shadow-sm mb-1" type="password" name="confirmedpassword" id="confirmedpassword"
-                                                    onChange={(e) => handleChange(e)}
-                                                    value={data.confirmedpassword}
-                                                />
-                                                <small className="text-mutedblue">By pressing Register, you are accepting to our Terms and conditions.</small>
                                             </div>
                                             <div className="col-6 mb-4 d-flex justify-content-center">
-                                                <button className="btn btn-green btn-register text-uppercase letter-shadow-sm shadow me-3" onClick={() => onSubmit()}>Register</button>
+                                                <button className="btn btn-green btn-register text-uppercase letter-shadow-sm shadow me-3">Register</button>
                                             </div>
                                             <div className="col-6 mb-4 d-flex justify-content-center">
-                                                <button className="btn btn-red btn-register text-uppercase letter-shadow-sm shadow">Login</button>
+                                                <button className="btn btn-red btn-register text-uppercase letter-shadow-sm shadow" onClick={() => onSubmit()}>Login</button>
                                             </div>
                                         </div>
                                     </div>

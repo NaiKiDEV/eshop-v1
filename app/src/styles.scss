@@ -11,6 +11,16 @@ $yellow: #FFE400;
 $white: #FFF;
 $borderradius: 3px;
 
+$blue: #49C5B1;
+$mutedblue: #3a9e8d;
+$darkblue: #2D3750;
+$lightdarkblue: #384967;
+$lightblue: #A2B2C8;
+
+$lightgreen: $blue;
+$black: $darkblue;
+$lightblack: $lightdarkblue;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 
@@ -28,7 +38,7 @@ html, body{
 .card{
     background-color: $black;
     color: $lightgreen;
-    border-radius: 0;
+    border-radius: $borderradius;
     border: 0;
 }
 
@@ -37,11 +47,10 @@ html, body{
     border: 0;
     border-radius: $borderradius;
     box-shadow: none;
-    color: $green !important;
-    text-transform: uppercase;
+    color: $lightblue !important;
     font-size: 18px;
     padding: 5px 10px;
-    border-bottom: 2px solid $lightblack;
+    border-bottom: 2px solid $lightdarkblue;
 }
 label{
     text-transform: uppercase;
@@ -49,7 +58,7 @@ label{
 .form-control:active, .form-control:focus, .form-control:hover{
     background-color: $lightblack;
     box-shadow: none;
-    border-bottom: 2px solid $darkgreen;
+    border-bottom: 2px solid $lightblue;
 }
 .btn{
     box-shadow: none;
@@ -61,18 +70,34 @@ label{
     border: $borderradius;
 }
 .btn-green{
-    background-color: $green;
-    color: $white;
+    background-color: $mutedblue;
+    color: $lightblue;
 }
 .btn-green:hover{
-    background-color: $darkgreen;
+    background-color: $blue;
     color: $white;
 }
 .btn-red{
+    background-color: $darkred;
+    color: $lightblue;   
+}
+.btn-red:hover{
     background-color: $red;
     color: $white;
 }
-.btn-red:hover{
+.btn-greeninverted{
+    background-color: $blue;
+    color: $white;
+}
+.btn-greeninverted:hover{
+    background-color: $mutedblue;
+    color: $white;
+}
+.btn-redinverted{
+    background-color: $red;
+    color: $white;   
+}
+.btn-redinverted:hover{
     background-color: $darkred;
     color: $white;
 }
@@ -89,11 +114,21 @@ label{
 .text-darkgreen{
     color: $darkgreen;
 }
+.text-mutedblue{
+    color: $mutedblue;
+}
+.text-lightblue{
+    color: $lightblue;
+}
+.text-lightdarkblue{
+    color: $lightdarkblue;
+}
+
 .letter-shadow-green{
-    text-shadow: 3px 1px 0px $lightblack;
+    text-shadow: 2px 1px 0px $lightblack;
 }
 .letter-shadow-sm{
-    text-shadow: 1px 1px 10px $lightblack;
+    text-shadow: 1px 1px 0px $lightblack;
 }
 
 .alert-green{
@@ -101,8 +136,18 @@ label{
     color: $white;
     border: 2px solid $lightgreen;
 }
+.alert-blue{
+    background-color: $darkblue;
+    color: $blue;
+    border: 2px solid $lightdarkblue;
+}
+.alert-blue{
+    background-color: $darkblue;
+    color: $blue;
+    border: 2px solid $blue;
+}
 .alert-red{
-    background-color: $darkred;
-    color: $white;
+    background-color: $darkblue;
+    color: $red;
     border: 2px solid $red;
 }

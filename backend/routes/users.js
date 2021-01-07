@@ -37,6 +37,39 @@ router.get('/all', function (req, res, next) {
 	})
 });
 
+/* GET users listing. */
+router.post('/login', function (req, res, next) {
+	const { email, password } = req.body;
+	MongoClient.connect(DB_FULLURL, (err, client) => {
+		if (err) {
+			console.log("[SERVER] connection failed")
+			res.status(400).send({ message: "Failed to connect to the server.", error: 1 })
+		}
+		var db = client.db(DB_NAME)
+		if (email && password) {
+			db.collection('users').findOne({ email: email })
+				.then((result) => {
+					if (result) {
+						if (getHash(password) == result.password) {
+							res.status(200).send({ ...result, password: null })
+						} else {
+							res.status(200).send({ error: 1, message: "Incorrect password." })
+						}
+					} else {
+						res.status(200).send({ error: 1, message: "User with this email doesn't exist." })
+					}
+				})
+				.catch(err => {
+					if (err) {
+						console.log("[SERVER] users db error")
+						res.status(400).send({ message: "Oops! We ran into a problem. Please try again!", error: 1 })
+					}
+				})
+		}
+
+	})
+});
+
 router.post('/delete', (req, res) => {
 	console.log(req.body)
 	console.log("Request with body:", req.body)
