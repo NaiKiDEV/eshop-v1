@@ -11,8 +11,8 @@ function Login() {
     const dispatch = useDispatch()
 
     const [data, setData] = useState({
-        email: '',
-        password: ''
+        email: 'shop@gmail.com',
+        password: 'qwerty'
     });
 
     useEffect(() => {

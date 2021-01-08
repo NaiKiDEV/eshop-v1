@@ -6,7 +6,7 @@ import { IoCartOutline } from 'react-icons/io5'
 function ShopItem(props) {
     const product = props.product
     return (
-        <div className="col-6 col-lg-4 col-xxl-3 mb-2 card-holder">
+        <div className="col-6 col-lg-4 col-xxl-3 mt-2 card-holder">
             <div className="card shadow-sm">
                 <div className="card-body">
                     <img src={product?.images[0]} className="image-fit" alt="" />
@@ -19,19 +19,15 @@ function ShopItem(props) {
                                 <p className="text-lightblue item-description lh-sm">{product.description}</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className="card-footer item-price bg-lightblue d-flex align-items-center py-0 ">
                     <div className="container-fluid px-0">
                         <div className="row">
-                            <div className="col-5">
+                            <div className="col-6">
                                 <h5 className="text-darkblue  mb-0"><IoCartOutline className="item-icon" /></h5>
                             </div>
-                            <div className="col-2 d-flex justify-content-center">
-                                <h5 className="text-darkblue  mb-0"><AiOutlineInfoCircle className="item-icon" /></h5>
-                            </div>
-                            <div className="col-5 d-flex justify-content-end ">
+                            <div className="col-6 d-flex justify-content-end ">
                                 <h5 className="text-darkblue item-pricetag mb-0">{product.price} €</h5>
                             </div>
                         </div>

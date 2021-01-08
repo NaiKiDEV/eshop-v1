@@ -105,6 +105,27 @@ label{
         color: $darkred;
     }  
 }
+.btn-admin {
+    background-color: $darkblue;
+    color: $lightblue; 
+    border-bottom: 2px solid $lightblue;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover, &:active, &:focus{
+        background-color: $darkblue;
+        color: $blue;
+        border-bottom: 2px solid $blue;
+    }  
+}
+.border-radius{
+    border-radius: $borderradius;
+}
+.admin-panel-text{
+    // border-bottom: 2px solid $red;
+}
+
 .btn-register{
     width: 100%;
     font-size: 20px;
@@ -192,7 +213,7 @@ a{
 }
 
 .image-fit{
-    height: 150px;
+    height: 140px;
     width: 100%;
     object-fit: cover;
 }
@@ -247,4 +268,26 @@ a{
         color: $red !important;
         cursor: pointer;
     }
+}
+
+.admin-image-remove-container{
+    position: relative;
+    cursor: pointer;
+    &:hover .admin-image-remove{
+        opacity: 0.8;
+    }
+}
+.admin-image-close{
+    font-size: 30px;
+    color: $red;
+}
+.admin-image-remove{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $darkblue;
+    opacity: 0;
+    transition: 0.3s ease;
+    top: 0;
+    left: 0;
 }
