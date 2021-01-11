@@ -27,11 +27,14 @@ function AdminPage() {
     return (
         <div className="container mt-4">
             <div className="row">
-                <div className="col-2 bg-darkblue border-radius pb-3">
-                    <h5 className="mt-3 text-blue admin-panel-text pb-2">Admin panel</h5>
-                    <button className="btn btn-admin" onClick={() => setMenu('addproduct')}>Add products <RiAddCircleFill /></button>
-                    <button className="btn btn-admin" onClick={() => setMenu('viewproducts')}>View products <BsEyeFill /></button>
-                    <button className="btn btn-admin" onClick={() => setMenu('vieworders')}>View orders <BsEyeFill /></button>
+                <div className="col-2 border-radius px-0">
+                    <div className="bg-darkblue w-100 px-3 pt-1 pb-4">
+                        <h5 className="mt-3 text-blue admin-panel-text pb-2">Admin panel</h5>
+                        <button className="btn btn-admin" onClick={() => setMenu('addproduct')}>Add products <RiAddCircleFill /></button>
+                        <button className="btn btn-admin" onClick={() => setMenu('viewproducts')}>View products <BsEyeFill /></button>
+                        <button className="btn btn-admin" onClick={() => setMenu('vieworders')}>View orders <BsEyeFill /></button>
+                    </div>
+
                 </div>
                 <div className="col-10">
                     {currentMenu.addproduct === true ? <AdminAddProduct /> : ""}

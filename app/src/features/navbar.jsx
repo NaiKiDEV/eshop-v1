@@ -14,16 +14,20 @@ function Navbar() {
         <div>
             <nav class="navbar shadow-sm">
                 <div class="container">
-                    <span class="navbar-brand text-lightblue mb-0 h1"><Link to="/">Shoppy</Link></span>
+                    <span className="navbar-brand text-lightblue mb-0"><Link to="/">Shoppy</Link></span>
+                    <div className="flex-grow-1 justify-content-start">
+                        <Link to="/" className="btn btn-blueinverted float-left text-lightblue mb-0">All items</Link>
+                    </div>
+
                     <span>
                         {user.isLoggedIn ?
                             <div>
                                 {user.userData.isAdmin == true ? <Link to="/admin" class="btn btn-redinverted mx-2">Admin</Link> : ""}
-                                <button class="btn btn-blueinverted mx-2" onClick={() => dispatch(logoutUser())}>Logout</button>
+                                <button className="btn btn-blueinverted mx-2" onClick={() => dispatch(logoutUser())}>Logout</button>
                             </div> :
                             <div>
-                                <Link to="/register" class="btn btn-blueinverted mx-2">Register</Link>
-                                <Link to="/login" class="btn btn-redinverted">Login </Link>
+                                <Link to="/register" className="btn btn-blueinverted mx-2">Register</Link>
+                                <Link to="/login" className="btn btn-redinverted">Login </Link>
                             </div>
                         }
 
