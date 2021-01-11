@@ -7,5 +7,5 @@ export const getAllProductsApi = () => {
 };
 
 export const addProductApi = (productData) => {
-  return httpClient.post(`orders/create`, productData);
+  return httpClient.post(`products/create`, productData);
 };

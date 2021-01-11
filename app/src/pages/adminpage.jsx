@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AdminAddProduct from '../components/adminaddproduct'
+import AdminViewProducts from '../components/adminviewproducts'
 import { RiAddCircleFill } from 'react-icons/ri'
 import { BsEyeFill } from 'react-icons/bs'
 
@@ -9,7 +10,8 @@ function AdminPage() {
         useState(
             {
                 addproduct: false,
-                vieworders: false
+                viewproducts: false,
+                vieworders: false,
             })
 
     function setMenu(menuname) {
@@ -17,12 +19,7 @@ function AdminPage() {
         for (var key in currentMenu) {
             tempstate = { ...tempstate, [key]: false }
         }
-        if (menuname === "addproduct") {
-            tempstate = { ...tempstate, addproduct: true }
-        } else if (menuname === "vieworders") {
-            tempstate = { ...tempstate, vieworders: true }
-        }
-        setCurrentMenu(tempstate)
+        setCurrentMenu({ ...tempstate, [menuname]: true })
     }
 
     console.log(currentMenu)
@@ -33,10 +30,12 @@ function AdminPage() {
                 <div className="col-2 bg-darkblue border-radius pb-3">
                     <h5 className="mt-3 text-blue admin-panel-text pb-2">Admin panel</h5>
                     <button className="btn btn-admin" onClick={() => setMenu('addproduct')}>Add products <RiAddCircleFill /></button>
+                    <button className="btn btn-admin" onClick={() => setMenu('viewproducts')}>View products <BsEyeFill /></button>
                     <button className="btn btn-admin" onClick={() => setMenu('vieworders')}>View orders <BsEyeFill /></button>
                 </div>
                 <div className="col-10">
                     {currentMenu.addproduct === true ? <AdminAddProduct /> : ""}
+                    {currentMenu.viewproducts === true ? <AdminViewProducts /> : ""}
                     {currentMenu.vieworders === true ? "OPENED VIEW ORDERS PAGE" : ""}
                 </div>
             </div>

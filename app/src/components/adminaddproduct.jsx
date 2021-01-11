@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { IoClose } from 'react-icons/io5'
 import CreatableSelect from 'react-select/creatable'
 import makeAnimated from 'react-select/animated';
+import { addProduct } from '../store/product/actions';
 
 function AdminAddProduct() {
 
@@ -10,18 +11,16 @@ function AdminAddProduct() {
     const [currentImage, setCurrentImage] = useState("")
 
     const [data, setData] = useState({
-        name: "GMK Oblivion",
-        price: 150,
-        description: "Programmer based keycap set by GMK made from ABS plastic.",
-        fulldescription: "",
-        categories: [
-            "keyboards",
-            "keycaps"
-        ],
+
+        name: "Product name",
+        price: 0,
+        description: "Placeholder small description",
+        fulldescription: "Here goes full description",
+        categories: [],
         images: [
             "https://i.imgur.com/OSrvmi9.png"
         ],
-        stock: 15
+        stock: 99
     });
 
     const options = [
@@ -106,10 +105,18 @@ function AdminAddProduct() {
     }
 
     function onSubmit() {
-        // TODO: Add some validation if passwords do not match
-
-        // dispatch(registerUser(data));
-
+        dispatch(addProduct(data));
+        setData({
+            name: "Product name",
+            price: 0,
+            description: "Placeholder small description",
+            fulldescription: "Here goes full description",
+            categories: [],
+            images: [
+                "https://i.imgur.com/OSrvmi9.png"
+            ],
+            stock: 99
+        })
     }
     console.log(data)
 
