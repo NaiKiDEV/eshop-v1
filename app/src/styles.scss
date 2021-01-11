@@ -105,6 +105,7 @@ label{
         color: $darkred;
     }  
 }
+
 .btn-admin {
     background-color: $darkblue;
     color: $lightblue; 
@@ -130,6 +131,7 @@ label{
     width: 100%;
     font-size: 20px;
 }
+
 .text-blue{
     color: $blue;
 }
@@ -232,37 +234,25 @@ a{
 }
 
 .item-price{
-    transition: 0.5s ease;
-    height: 0px;
-}
-.item-pricetag{
-    display: none;
-}
-
-.card:hover .item-price{
+    // transition: 0.5s ease;
     height: 35px;
 }
-.card:hover .item-icon, .card:hover .item-pricetag{
+
+.item-pricetag{
+    display: block;
+}
+
+.card:hover .animate{
     display: block;
     color: $darkblue;
 }
 
 .card-holder{
-    transition: 0.5s ease;
-    padding-bottom: 35px;
-    &:hover{
-        padding-bottom: 0 !important;
-    }
-}
-
-.card-footer{
-
-
+    // transition: 0.5s ease;
 }
 
 .item-icon{
-    display: none;
-    color: $lightblue;
+    color: $darkblue;
     transition: 0.2s ease;
     &:hover{
         color: $red !important;

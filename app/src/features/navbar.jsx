@@ -7,6 +7,7 @@ import { logoutUser } from '../store/user/actions';
 function Navbar() {
 
     const user = useSelector(state => state.user)
+    const products = useSelector(state => state.product)
     const dispatch = useDispatch()
 
     return (
@@ -46,6 +47,16 @@ function Navbar() {
                                 (user.requestcode === 99 ? // Logout code with message
                                     <div className="alert alert-red py-2 shadow-sm">{user.message}</div> :
                                     ""
+                                )
+                                :
+                                ""
+                            }
+                            {(user.isLoggedIn == true) ?
+                                (products.requestcode === 1 ? // Logout code with message
+                                    <div className="alert alert-blue py-2 shadow-sm">{user.message}</div> :
+                                    products.requestcode === 0 ?
+                                        <div className="alert alert-red py-2 shadow-sm">{user.message}</div> :
+                                        ""
                                 )
                                 :
                                 ""

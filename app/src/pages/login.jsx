@@ -19,7 +19,7 @@ function Login() {
         if (user.isLoggedIn == true) {
             setTimeout(() => {
                 history.push('/')
-            }, 2000)
+            }, 250)
         }
     }, [user])
 

@@ -71,6 +71,6 @@ export default function* () {
   yield takeLatest(LOGIN_USER, loginUserSaga);
   yield takeLatest(LOGOUT_USER, logoutUserSaga);
   yield debounce(5000, REGISTER_USER, clearMessageSaga);
-  yield debounce(5000, LOGIN_USER, clearMessageSaga);
+  yield debounce(2000, LOGIN_USER, clearMessageSaga);
   yield debounce(2000, LOGOUT_USER, clearMessageSaga);
 }
