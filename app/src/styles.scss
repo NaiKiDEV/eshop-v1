@@ -325,3 +325,31 @@ a{
     background-color: $green;
     color: $white;
 }
+.navbar-cart{
+    font-size: 32px;
+    color: $lightblue;
+    cursor: pointer;
+}
+.navbar-cart-count{
+    position: absolute;
+    font-size: 10px;
+    top: -4px;
+    right: -6px;
+}
+.navbar-cart-popover{
+    position: absolute;
+    background-color: $black;
+    border: 2px solid $lightdarkblue;
+    border-radius: $borderradius;
+    z-index: 1000;
+    top: 30px;
+    right: 0;
+    width: 400px;
+}
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

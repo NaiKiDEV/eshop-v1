@@ -17,9 +17,11 @@ function Home() {
         <div>
             <div className="container mt-3">
                 <div className="row">
-                    <div className="col-2 h-100 bg-darkblue rounded">
+                    <div className="col-2 d-none d-lg-block h-100 bg-darkblue rounded">
                         <div className="pt-2 pb-4">
                             <h4 className="text-blue mb-3">Filter items</h4>
+                            <h6 className="text-blue">Search:</h6>
+                            <input className="form-control mb-2 py-1 px-1" type="text"></input>
                             <h6 className="text-blue">Tags:</h6>
                             <div className="badge rounded-pill badge-blue me-2">New</div>
                             <div className="badge rounded-pill badge-red me-2">Discount</div>

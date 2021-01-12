@@ -1,13 +1,16 @@
 import {
   ADD_PRODUCT_END,
   GET_ALL_PRODUCTS_END,
-  ADD_PRODUCT
+  ADD_PRODUCT,
+  ADD_TO_CART_END,
+  REMOVE_FROM_CART_END
 } from './actionTypes';
 
 const initialState = {
   products: [],
   productcode: null,
-  productmessage: ""
+  productmessage: "",
+  cart: []
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +21,12 @@ export default (state = initialState, action) => {
     //     isLoggedIn: true
     //   }
     // }
+    case ADD_TO_CART_END: {
+      return { ...state, cart: [...state.cart, action.payload] }
+    }
+    case REMOVE_FROM_CART_END: {
+      return { ...state, cart: state.cart.filter(x => x._id !== action.payload) }
+    }
     case GET_ALL_PRODUCTS_END: {
       return {
         ...state,

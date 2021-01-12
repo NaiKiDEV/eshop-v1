@@ -1,12 +1,15 @@
 import React from 'react';
 import { FaCartPlus } from 'react-icons/fa'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
-import { FaRegPlusSquare as Cart } from 'react-icons/fa'
+import { FaRegPlusSquare as CartAdd, FaRegMinusSquare as CartRemove } from 'react-icons/fa'
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../store/product/actions';
 
 function ShopItem(props) {
     const product = props.product
 
-
+    const cart = useSelector(state => state.product.cart)
+    const dispatch = useDispatch();
 
     Date.prototype.removeDays = function (days) {
         var date = new Date(this.valueOf());
@@ -14,8 +17,15 @@ function ShopItem(props) {
         return date;
     }
 
-    // console.log(new Date(product.created), new Date().removeDays(7))
+    function handleAddToCart() {
+        dispatch(addToCart(product))
+    }
+    function handleRemoveFromCart() {
+        dispatch(removeFromCart(product._id))
+    }
 
+    // console.log(new Date(product.created), new Date().removeDays(7))
+    console.log()
     return (
         <div className="col-6 col-lg-4 col-xxl-3 mb-4 card-holder">
             <div className="card shadow-sm">
@@ -40,7 +50,13 @@ function ShopItem(props) {
                     <div className="container-fluid px-0">
                         <div className="row">
                             <div className="col-2 d-flex align-items-center animate">
-                                <h5 className="text-darkblue d-flex align-items-center mb-0"><Cart className="item-icon" /></h5>
+                                <h5 className="text-darkblue d-flex align-items-center mb-0">
+
+                                    {cart.filter(x => x._id === product._id).length > 0 ?
+                                        <CartRemove className="item-icon" onClick={() => handleRemoveFromCart()} /> :
+                                        <CartAdd className="item-icon" onClick={() => handleAddToCart()} />
+                                    }
+                                </h5>
                             </div>
                             <div className="col-10 d-flex justify-content-end ">
                                 <h5 className="text-darkblue item-pricetag mb-0">

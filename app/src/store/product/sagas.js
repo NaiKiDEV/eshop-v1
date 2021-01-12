@@ -7,11 +7,15 @@ import {
 } from './api';
 import {
   GET_ALL_PRODUCTS,
-  ADD_PRODUCT
+  ADD_PRODUCT,
+  ADD_TO_CART,
+  REMOVE_FROM_CART
 } from './actionTypes';
 import {
   getAllProductsEnd,
-  addProductEnd
+  addProductEnd,
+  addToCartEnd,
+  removeFromCartEnd
 } from './actions';
 
 
@@ -31,9 +35,25 @@ export function* addProductSaga(action) {
     // stops saga from breaking on api error
   }
 }
+export function* addToCartSaga(action) {
+  try {
+    yield put(addToCartEnd(action.payload));
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
+export function* removeFromCartSaga(action) {
+  try {
+    yield put(removeFromCartEnd(action.payload));
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
 
 
 export default function* () {
   yield takeLatest(GET_ALL_PRODUCTS, getAllProductsSaga);
   yield takeLatest(ADD_PRODUCT, addProductSaga);
+  yield takeLatest(ADD_TO_CART, addToCartSaga);
+  yield takeLatest(REMOVE_FROM_CART, removeFromCartSaga);
 }
