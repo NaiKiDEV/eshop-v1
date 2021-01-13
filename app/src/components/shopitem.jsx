@@ -18,7 +18,7 @@ function ShopItem(props) {
     }
 
     function handleAddToCart() {
-        dispatch(addToCart(product))
+        dispatch(addToCart({ ...product, quantity: 1 }))
     }
     function handleRemoveFromCart() {
         dispatch(removeFromCart(product._id))

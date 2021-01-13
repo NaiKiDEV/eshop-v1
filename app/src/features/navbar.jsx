@@ -19,13 +19,21 @@ function Navbar() {
     useEffect(() => {
         setCartSum(0)
         var sum = 0;
-        cart.forEach(x => sum += x.price)
+        cart.forEach(x => {
+            if (x.discount && x.discount > 0) {
+                sum += x.discount
+            } else {
+                sum += x.price
+            }
+        })
         setCartSum(sum)
-
     }, [cart]);
 
     function handleCartOpen() {
-        setCartOpen(!cartOpen)
+        setCartOpen(true)
+    }
+    function handleCartClose() {
+        setCartOpen(false)
     }
 
     return (
@@ -37,26 +45,28 @@ function Navbar() {
                         <Link to="/" className="btn btn-blueinverted float-left text-lightblue mb-0">All items</Link>
                     </div>
                     <div className="position-relative me-2 navbar-cart-container">
-                        <CartLogo className="navbar-cart" onClick={() => handleCartOpen()}></CartLogo>
-                        <div className="badge rounded-pill bg-danger navbar-cart-count">{cart.length > 0 ? cart.length : ""}</div>
-                        <div className={"navbar-cart-popover bg-darkblue shadow-lg " + (cartOpen ? "show" : "hide")}>
+                        <CartLogo className="navbar-cart" onMouseEnter={() => handleCartOpen()}></CartLogo>
+                        <div className="badge rounded-pill badge-blue navbar-cart-count">{cart.length > 0 ? cart.length : ""}</div>
+                        <div onMouseLeave={handleCartClose} className={"navbar-cart-popover bg-darkblue shadow-lg " + (cartOpen ? "show" : "hide")}>
                             <div className="pt-3 px-3">
-                                <h5 className="text-blue">CART:</h5>
+                                <h5 className="text-blue letter-shadow-sm">CART:</h5>
                             </div>
+                            <div className="border-top-white mx-auto mt-2 mb-2"></div>
                             {cart.length > 0 ?
                                 cart.map(item => <CartItem product={item}></CartItem>) :
-                                <div className="py-2 px-3 text-blue">
-                                    Empty...
+                                <div className="py-2 px-3 text-lightblue">
+                                    Cart is empty...
                                 </div>
                             }
-                            <div className="py-3 ps-1 pe-3">
+                            <div className="border-top-white mx-auto mt-2"></div>
+                            <div className="py-2 ps-1 pe-3">
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-6 justify-content-start align-items-center">
-                                            <button className="btn btn-blueinverted">Checkout</button>
+                                            <button className="btn ps-0 btn-redinverted">View order</button>
                                         </div>
-                                        <div className="col-6 d-flex justify-content-end align-items-center">
-                                            <h5 className="text-blue mb-0">Total: {cartSum} €</h5>
+                                        <div className="col-6 pe-0 d-flex justify-content-end align-items-center">
+                                            <h5 className="text-blue mb-0 letter-shadow-sm">Total: <span className="text-lightblue">{cartSum} €</span></h5>
                                         </div>
                                     </div>
                                 </div>

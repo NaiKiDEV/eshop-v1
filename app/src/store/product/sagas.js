@@ -9,13 +9,15 @@ import {
   GET_ALL_PRODUCTS,
   ADD_PRODUCT,
   ADD_TO_CART,
-  REMOVE_FROM_CART
+  REMOVE_FROM_CART,
+  UPDATE_CART
 } from './actionTypes';
 import {
   getAllProductsEnd,
   addProductEnd,
   addToCartEnd,
-  removeFromCartEnd
+  removeFromCartEnd,
+  updateCartEnd
 } from './actions';
 
 
@@ -50,10 +52,25 @@ export function* removeFromCartSaga(action) {
   }
 }
 
+// {_id: toUpdateItem, quantity: amountOfProducts}
+export function* updateCartSaga(action) {
+  try {
+    if (action.payload.quantity > 0) {
+      yield put(updateCartEnd(action.payload));
+    } else {
+      yield put(removeFromCartEnd(action.payload._id));
+    }
+
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
+
 
 export default function* () {
   yield takeLatest(GET_ALL_PRODUCTS, getAllProductsSaga);
   yield takeLatest(ADD_PRODUCT, addProductSaga);
   yield takeLatest(ADD_TO_CART, addToCartSaga);
   yield takeLatest(REMOVE_FROM_CART, removeFromCartSaga);
+  yield takeLatest(UPDATE_CART, updateCartSaga);
 }

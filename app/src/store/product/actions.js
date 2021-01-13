@@ -6,7 +6,9 @@ import {
   ADD_TO_CART,
   ADD_TO_CART_END,
   REMOVE_FROM_CART,
-  REMOVE_FROM_CART_END
+  REMOVE_FROM_CART_END,
+  UPDATE_CART,
+  UPDATE_CART_END
 } from './actionTypes';
 
 export const getAllProducts = () => ({
@@ -40,4 +42,12 @@ export const removeFromCart = (productId) => ({
 export const removeFromCartEnd = (productId) => ({
   type: REMOVE_FROM_CART_END,
   payload: productId
+});
+export const updateCart = (cartItem) => ({
+  type: UPDATE_CART,
+  payload: cartItem
+});
+export const updateCartEnd = (cartItem) => ({
+  type: UPDATE_CART_END,
+  payload: cartItem
 });

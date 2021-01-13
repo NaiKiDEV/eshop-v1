@@ -9,3 +9,6 @@ export const ADD_TO_CART_END = 'product/ADD_TO_CART_END';
 
 export const REMOVE_FROM_CART = 'product/REMOVE_FROM_CART';
 export const REMOVE_FROM_CART_END = 'product/REMOVE_FROM_CART_END';
+
+export const UPDATE_CART = 'product/UPDATE_CART';
+export const UPDATE_CART_END = 'product/UPDATE_CART_END';
