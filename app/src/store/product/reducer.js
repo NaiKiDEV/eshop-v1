@@ -14,7 +14,7 @@ const initialState = {
 	cart: []
 };
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		// case LOGIN_END: {
 		//   return {
@@ -64,3 +64,5 @@ export default (state = initialState, action) => {
 		}
 	}
 };
+
+export default reducer;

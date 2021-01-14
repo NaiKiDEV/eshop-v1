@@ -1,6 +1,4 @@
 import React from 'react';
-import { FaCartPlus } from 'react-icons/fa'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { FaRegPlusSquare as CartAdd, FaRegMinusSquare as CartRemove } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../store/product/actions';
@@ -11,8 +9,8 @@ function ShopItem(props) {
     const cart = useSelector(state => state.product.cart)
     const dispatch = useDispatch();
 
-    Date.prototype.removeDays = function (days) {
-        var date = new Date(this.valueOf());
+    const removeDays = function (days) {
+        var date = new Date();
         date.setDate(date.getDate() - days);
         return date;
     }
@@ -32,7 +30,7 @@ function ShopItem(props) {
                 <div className="card-body shadow">
                     <img src={product?.images[0]} className="image-fit" alt="" />
                     <div className="item-specials">
-                        {new Date(product.created) > new Date().removeDays(7) ? <span className="badge rounded-pill badge-blue">New</span> : ""}
+                        {new Date(product.created) > removeDays(7) ? <span className="badge rounded-pill badge-blue">New</span> : ""}
                         {product?.discount > 0 ? <span className="badge rounded-pill badge-red ms-2">Discount</span> : ""}
                     </div>
                     <div className="container-fluid mt-2 px-0">

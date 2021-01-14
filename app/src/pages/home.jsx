@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../store/product/actions';
 import ShopItem from '../components/shopitem'
@@ -9,9 +9,9 @@ function Home() {
 
     useEffect(() => {
         dispatch(getAllProducts())
-    }, [])
+    }, [dispatch])
 
-    console.log(products)
+    // console.log(products)
 
     return (
         <div>

@@ -1,7 +1,5 @@
 import React from 'react';
-import { FaCartPlus } from 'react-icons/fa'
 import { FaPencilAlt as Pencil } from 'react-icons/fa'
-import { IoClose, IoPencilOutline } from 'react-icons/io5'
 import { MdRemoveCircle as IconRemove } from 'react-icons/md'
 import { ImPriceTags } from 'react-icons/im'
 

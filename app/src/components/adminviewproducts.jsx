@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../store/product/actions';
 import AdminShopItem from '../components/adminshopitem'
@@ -9,13 +9,13 @@ function Home() {
 
     useEffect(() => {
         dispatch(getAllProducts())
-    }, [])
+    }, [dispatch])
 
     console.log(products)
 
     return (
         <div>
-            <div className="container-fluid mt-3">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 ">
                         <div className="row">

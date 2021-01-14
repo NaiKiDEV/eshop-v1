@@ -16,7 +16,7 @@ function Login() {
     });
 
     useEffect(() => {
-        if (user.isLoggedIn == true) {
+        if (user.isLoggedIn === true) {
             setTimeout(() => {
                 history.push('/')
             }, 250)

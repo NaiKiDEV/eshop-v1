@@ -1,6 +1,5 @@
 import {
   CLEAR_MESSAGE_END,
-  GET_USER_END,
   REGISTER_USER_END,
   LOGIN_USER_END,
   LOGOUT_USER_END
@@ -13,7 +12,7 @@ const initialState = {
   requestcode: null
 };
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     // case LOGIN_END: {
     //   return {
@@ -58,3 +57,4 @@ export default (state = initialState, action) => {
     }
   }
 };
+export default reducer;

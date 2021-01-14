@@ -74,3 +74,4 @@ export default function* () {
   yield takeLatest(REMOVE_FROM_CART, removeFromCartSaga);
   yield takeLatest(UPDATE_CART, updateCartSaga);
 }
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { registerUser } from '../store/user/actions'
 import { useDispatch, useSelector } from 'react-redux'
 

@@ -174,7 +174,7 @@ function AdminAddProduct() {
                                                     <div className="row mt-3">
                                                         {data?.images.map((image, index) =>
                                                             <div className="col-3 admin-image-remove-container ps-0 pe-2 mb-2">
-                                                                <img src={image} className="image-fit " ></img>
+                                                                <img src={image} alt="admin item" className="image-fit " ></img>
                                                                 <div className="admin-image-remove d-flex justify-content-center align-items-center" onClick={() => handleRemoveImage(index)}>
                                                                     <IoClose className="admin-image-close" />
                                                                 </div>

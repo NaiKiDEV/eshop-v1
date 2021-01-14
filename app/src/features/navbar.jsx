@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { FiLogIn } from 'react-icons/fi'
 import { IoCartOutline as CartLogo } from 'react-icons/io5'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../store/user/actions';
@@ -21,9 +20,9 @@ function Navbar() {
         var sum = 0;
         cart.forEach(x => {
             if (x.discount && x.discount > 0) {
-                sum += x.discount
+                sum += x.discount * x.quantity
             } else {
-                sum += x.price
+                sum += x.price * x.quantity
             }
         })
         setCartSum(sum)
@@ -40,7 +39,7 @@ function Navbar() {
         <div>
             <nav class="navbar shadow-sm">
                 <div class="container">
-                    <span className="navbar-brand text-lightblue mb-0"><Link to="/">Shoppy</Link></span>
+                    <span className="navbar-brand text-lightblue mb-0"><Link to="/">SHOP</Link></span>
                     <div className="flex-grow-1 justify-content-start">
                         <Link to="/" className="btn btn-blueinverted float-left text-lightblue mb-0">All items</Link>
                     </div>
@@ -78,7 +77,7 @@ function Navbar() {
 
                         {user.isLoggedIn ?
                             <div>
-                                {user.userData.isAdmin == true ? <Link to="/admin" class="btn btn-redinverted mx-2">Admin</Link> : ""}
+                                {user.userData.isAdmin === true ? <Link to="/admin" class="btn btn-redinverted mx-2">Admin</Link> : ""}
                                 <button className="btn btn-blueinverted mx-2" onClick={() => dispatch(logoutUser())}>Logout</button>
                             </div> :
                             <div>
@@ -94,7 +93,7 @@ function Navbar() {
                 <div className="row">
                     <div className="col-2 offset-8 position-absolute " style={{ "zIndex": "1000" }}>
                         <div className="important-messages mt-2">
-                            {(user.isLoggedIn == true) ?
+                            {(user.isLoggedIn === true) ?
                                 (user.requestcode === 1 ?
                                     <div className="alert alert-blue py-2 shadow-sm">{user.message}</div> :
                                     ""
@@ -102,7 +101,7 @@ function Navbar() {
                                 :
                                 ""
                             }
-                            {(user.isLoggedIn == false) ?
+                            {(user.isLoggedIn === false) ?
                                 (user.requestcode === 99 ? // Logout code with message
                                     <div className="alert alert-red py-2 shadow-sm">{user.message}</div> :
                                     ""
@@ -110,7 +109,7 @@ function Navbar() {
                                 :
                                 ""
                             }
-                            {(user.isLoggedIn == true) ?
+                            {(user.isLoggedIn === true) ?
                                 (products.requestcode === 1 ? // Logout code with message
                                     <div className="alert alert-blue py-2 shadow-sm">{user.message}</div> :
                                     products.requestcode === 0 ?

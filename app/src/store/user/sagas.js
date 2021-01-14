@@ -64,7 +64,6 @@ export function* clearMessageSaga(action) {
   }
 }
 
-
 export default function* () {
   yield takeLatest(GET_USER, getUserSaga);
   yield takeLatest(REGISTER_USER, registerUserSaga);
