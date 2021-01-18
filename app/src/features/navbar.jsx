@@ -36,14 +36,16 @@ function Navbar() {
     }
 
     return (
-        <div>
-            <nav class="navbar shadow-sm">
-                <div class="container">
+        <nav class="navbar shadow-sm sticky h-14">
+            <div class="grid grid-cols-12 flex-row justify-between items-center h-full">
+                <div className="col-start-2 col-end-6 flex flex-row ">
                     <span className="navbar-brand text-lightblue mb-0"><Link to="/">SHOP</Link></span>
                     <div className="flex-grow-1 justify-content-start">
                         <Link to="/" className="btn btn-blueinverted float-left text-lightblue mb-0">All items</Link>
                     </div>
-                    <div className="position-relative me-2 navbar-cart-container">
+                </div>
+                <div className="col-start-6 col-end-12 flex flex-row items-center justify-end space-x-3">
+                    <div className="relative me-2 navbar-cart-container">
                         <CartLogo className="navbar-cart" onMouseEnter={() => handleCartOpen()}></CartLogo>
                         <div className="badge rounded-pill badge-blue navbar-cart-count">{cart.length > 0 ? cart.length : ""}</div>
                         <div onMouseLeave={handleCartClose} className={"navbar-cart-popover bg-darkblue shadow-lg " + (cartOpen ? "show" : "hide")}>
@@ -73,25 +75,22 @@ function Navbar() {
                             </div>
                         </div>
                     </div>
-                    <span>
 
-                        {user.isLoggedIn ?
-                            <div>
-                                {user.userData.isAdmin === true ? <Link to="/admin" class="btn btn-redinverted mx-2">Admin</Link> : ""}
-                                <button className="btn btn-blueinverted mx-2" onClick={() => dispatch(logoutUser())}>Logout</button>
-                            </div> :
-                            <div>
-                                <Link to="/register" className="btn btn-blueinverted mx-2">Register</Link>
-                                <Link to="/login" className="btn btn-redinverted">Login </Link>
-                            </div>
-                        }
-                    </span>
-
+                    {user.isLoggedIn ?
+                        <div className="flex flex-row space-x-3">
+                            {user.userData.isAdmin === true ? <Link to="/admin" class="btn btn-redinverted mx-2">Admin</Link> : ""}
+                            <button className="btn btn-blueinverted mx-2" onClick={() => dispatch(logoutUser())}>Logout</button>
+                        </div> :
+                        <div className="flex flex-row space-x-3">
+                            <Link to="/register" className="btn btn-blueinverted mx-2">Register</Link>
+                            <Link to="/login" className="btn btn-redinverted">Login </Link>
+                        </div>
+                    }
                 </div>
-            </nav>
+            </div>
             <div className="container">
                 <div className="row">
-                    <div className="col-2 offset-8 position-absolute " style={{ "zIndex": "1000" }}>
+                    <div className="col-2 offset-8 absolute " style={{ "zIndex": "1000" }}>
                         <div className="important-messages mt-2">
                             {(user.isLoggedIn === true) ?
                                 (user.requestcode === 1 ?
@@ -123,8 +122,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-
-        </div>
+        </nav>
     );
 }
 
