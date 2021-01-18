@@ -24,7 +24,7 @@ router.get('/all', function (req, res, next) {
             }
             if (products.length > 0) {
                 res.status(200).send(products.map(product => { return { ...product } }))
-                console.log("All products:", products)
+                // console.log("All products:", products)
             } else {
                 res.status(200).send({ error: 1, message: "There are no products." })
             }
