@@ -20,25 +20,26 @@ $lightblue: #A2B2C8;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-html, body{
+html,
+body {
     height: 100%;
     width: 100%;
     background-color: $lightdarkblue;
     font-family: "Poppins", sans-serif;
 }
 
-.navbar{
+.navbar {
     background-color: $darkblue;
 }
 
-.card{
+.card {
     background-color: $darkblue;
     color: $blue;
     border-radius: $borderradius;
     border: 0;
 }
 
-.form-control{
+.form-control {
     background-color: $lightdarkblue;
     border: 0;
     border-radius: $borderradius;
@@ -48,179 +49,238 @@ html, body{
     padding: 5px 10px;
     border-bottom: 2px solid $lightdarkblue;
     transition: 0.2s ease;
-    &:active, &:focus{
+
+    &:active,
+    &:focus {
         background-color: $lightdarkblue;
         box-shadow: none;
         border-bottom: 2px solid $lightblue;
         outline: none !important;
     }
 }
-label{
+
+.form-control-small {
+    background-color: $lightdarkblue;
+    border: 0;
+    border-radius: $borderradius;
+    box-shadow: none;
+    color: $lightblue !important;
+    font-size: 16px;
+    transition: 0.2s ease;
+
+    &:active,
+    &:focus {
+        background-color: $lightdarkblue;
+        box-shadow: none;
+        outline: none !important;
+    }
+}
+
+label {
     text-transform: uppercase;
 }
-.btn{
+
+.btn {
     box-shadow: none;
     border: 0;
     border-radius: $borderradius;
 }
-.btn{
-    &:active, &:focus, &:hover{
+
+.btn {
+
+    &:active,
+    &:focus,
+    &:hover {
         box-shadow: none;
         border: $borderradius;
     }
 }
-.btn-blue{
+
+.btn-blue {
     background-color: $mutedblue;
     color: $white;
 
-    &:hover{
+    &:hover {
         background-color: $blue;
         color: $white;
     }
 }
-.btn-red{
+
+.btn-transparent-blue {
+    background-color: transparent;
+    color: $blue;
+
+    &:hover {
+        background-color: transparent;
+        color: $mutedblue;
+    }
+}
+
+.btn-red {
     background-color: $darkred;
     color: $white;
 
-    &:hover{
+    &:hover {
         background-color: $red;
         color: $white;
     }
 }
-.btn-blueinverted{
+
+.btn-blueinverted {
     background-color: $darkblue;
     color: $blue;
 
-    &:hover{
+    &:hover {
         background-color: $darkblue;
         color: $mutedblue;
     }
 }
-.btn-redinverted{
-    background-color: $darkblue;
-    color: $red; 
 
-    &:hover{
+.btn-redinverted {
+    background-color: $darkblue;
+    color: $red;
+
+    &:hover {
         background-color: $darkblue;
         color: $darkred;
-    }  
+    }
 }
 
 .btn-admin {
     background-color: $darkblue;
-    color: $lightblue; 
+    color: $lightblue;
     border-bottom: 2px solid $lightblue;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &:hover, &:active, &:focus{
+
+    &:hover,
+    &:active,
+    &:focus {
         background-color: $darkblue;
         color: $blue;
         border-bottom: 2px solid $blue;
-    }  
+    }
 }
-.border-radius{
+
+.border-radius {
     border-radius: $borderradius;
 }
-.admin-panel-text{
+
+.admin-panel-text {
     // border-bottom: 2px solid $red;
 }
 
-.btn-register{
-    width: 100%;
+.btn-register {
     font-size: 20px;
 }
 
-.text-blue{
+.text-blue {
     color: $blue;
 }
-.text-green{
+
+.text-green {
     color: $green;
 }
-.text-darkgreen{
+
+.text-darkgreen {
     color: $darkgreen;
 }
-.text-mutedblue{
+
+.text-mutedblue {
     color: $mutedblue;
 }
-.text-lightblue{
+
+.text-lightblue {
     color: $lightblue;
 }
-.text-lightdarkblue{
+
+.text-lightdarkblue {
     color: $lightdarkblue;
 }
-.text-darkblue{
+
+.text-darkblue {
     color: $darkblue;
 }
-.text-red{
+
+.text-red {
     color: $red;
 }
 
-.bg-blue{
+.bg-blue {
     background-color: $blue;
 }
-.bg-green{
+
+.bg-green {
     background-color: $green;
 }
-.bg-darkgreen{
+
+.bg-darkgreen {
     background-color: $darkgreen;
 }
-.bg-mutedblue{
+
+.bg-mutedblue {
     background-color: $mutedblue;
 }
-.bg-lightblue{
+
+.bg-lightblue {
     background-color: $lightblue;
 }
-.bg-lightdarkblue{
+
+.bg-lightdarkblue {
     background-color: $lightdarkblue;
 }
-.bg-darkblue{
+
+.bg-darkblue {
     background-color: $darkblue;
 }
 
 
 
 
-a{
+a {
     color: inherit;
     font-family: "Poppins";
 
-    &:hover{
+    &:hover {
         color: inherit;
     }
 }
 
-.letter-shadow-green{
+.letter-shadow-green {
     text-shadow: 2px 1px 0px $lightdarkblue;
 }
-.letter-shadow-sm{
+
+.letter-shadow-sm {
     text-shadow: 1px 1px 0px $lightdarkblue;
 }
 
-.alert-green{
+.alert-green {
     background-color: $green;
     color: $white;
     border: 2px solid $blue;
 }
-.alert-blue{
+
+.alert-blue {
     background-color: $darkblue;
     color: $blue;
     border: 2px solid $blue;
 }
-.alert-red{
+
+.alert-red {
     background-color: $darkblue;
     color: $red;
     border: 2px solid $red;
 }
 
-.image-fit{
+.image-fit {
     height: 140px;
     width: 100%;
     object-fit: cover;
 }
 
-.item-name{
+.item-name {
     height: 30px;
     display: flex;
     align-items: center;
@@ -228,26 +288,26 @@ a{
     text-align: end;
 }
 
-.item-description{
+.item-description {
     font-size: 13px;
     height: 35px;
 }
 
-.item-price{
+.item-price {
     // transition: 0.5s ease;
     height: 35px;
 }
 
-.item-pricetag{
+.item-pricetag {
     display: block;
 }
 
-.card:hover .animate{
+.card:hover .animate {
     display: block;
     color: $darkblue;
 }
 
-.card-holder{
+.card-holder {
     // transition: 0.5s ease;
 }
 
@@ -257,6 +317,7 @@ a{
 .text-strikethrough {
     position: relative;
 }
+
 .text-strikethrough:before {
     position: absolute;
     content: "";
@@ -267,36 +328,44 @@ a{
     border-top: 2px solid;
     border-color: $red;
 
-    -webkit-transform:rotate(-15deg);
-    -moz-transform:rotate(-15deg);
-    -ms-transform:rotate(-15deg);
-    -o-transform:rotate(-15deg);
-    transform:rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    transform: rotate(-15deg);
 }
 
-.item-icon{
+.item-icon {
     height: 20px;
     width: 20px;
     color: $darkblue;
     transition: 0.2s ease;
-    &:hover{
+
+    &:hover {
         color: $red !important;
         cursor: pointer;
     }
+
+    &.active {
+        color: $red !important;
+    }
 }
 
-.admin-image-remove-container{
+.admin-image-remove-container {
     position: relative;
     cursor: pointer;
-    &:hover .admin-image-remove{
+
+    &:hover .admin-image-remove {
         opacity: 0.8;
     }
 }
-.admin-image-close{
+
+.admin-image-close {
     font-size: 30px;
     color: $red;
 }
-.admin-image-remove{
+
+.admin-image-remove {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -307,76 +376,109 @@ a{
     left: 0;
 }
 
-.item-specials{
+.item-specials {
     position: absolute;
-    top: 22px;
-    right: 22px;
+    top: 10px;
+    right: 10px;
 }
 
-.badge-blue{
+.badge-blue {
     background-color: $mutedblue;
     color: $white;
 }
-.badge-red{
+
+.badge-red {
     background-color: $darkred;
     color: $white;
 }
-.badge-green{
+
+.badge-green {
     background-color: $green;
     color: $white;
 }
-.navbar-cart{
+
+.navbar-cart {
     font-size: 32px;
     color: $lightblue;
     cursor: pointer;
 }
-.navbar-cart-count{
+
+.navbar-cart-count {
     position: absolute;
     font-size: 10px;
     top: -4px;
     right: -6px;
 }
-.navbar-cart-popover{
+
+.navbar-cart-popover {
     position: absolute;
     background-color: $darkblue;
     border: 2px solid $lightdarkblue;
     border-radius: $borderradius;
-    z-index: 1000;
+    z-index: 99999;
     top: 30px;
     right: 0;
     width: 400px;
 }
 
-.cart-image{
+.cart-image {
     width: 100%;
     height: 60px;
     object-fit: cover;
 }
 
-.border-top-white{
+.border-top-white {
     border-top: 2px solid $lightblue;
     width: 92%;
 }
 
-.hide{
+.hide {
     opacity: 0;
-    transition: 0.3s ease;
+    transition: 0.15s ease;
     z-index: -1;
-}
-.show{
-    z-index: 100;
-    opacity: 1;
-    transition: 0.3s ease;
+    visibility: hidden;
 }
 
-.btn{
+.show {
+    z-index: 9999;
+    opacity: 1;
+    transition: 0.15s ease;
+    visibility: visible;
+}
+
+.btn {
     transition: 0.2s ease;
     outline: none !important;
-    :focus,:hover,:active{
+
+    :focus,
+    :hover,
+    :active {
         outline: none !important;
     }
 }
 
-svg{
+.important-messages {
+    position: absolute;
+}
+
+svg {
     cursor: pointer;
+}
+
+.h-90p {
+    height: 90%;
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
 }

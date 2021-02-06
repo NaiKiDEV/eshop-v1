@@ -12,18 +12,6 @@ var ordersRouter = require('./routes/orders');
 
 var app = express();
 
-// var allowlist = ['http://localhost:3000']
-// var corsOptionsDelegate = function (req, callback) {
-//   var corsOptions;
-//   if (allowlist.indexOf(req.header('Origin')) !== -1) {
-//     console.log("allowed")
-//     corsOptions = { origin: true, preflightContinue: true } // reflect (enable) the requested origin in the CORS response
-//   } else {
-//     corsOptions = { origin: false, preflightContinue: true } // disable CORS for this request
-//   }
-//   callback(null, corsOptions) // callback expects two parameters: error and options
-// }
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

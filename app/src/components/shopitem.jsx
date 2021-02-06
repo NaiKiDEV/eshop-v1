@@ -26,12 +26,14 @@ function ShopItem(props) {
     console.log()
     return (
         <div className="bg-darkblue card-holder rounded shadow-sm">
-            <div className="p-4 relative">
-                <img src={product?.images[0]} className="image-fit" alt="" />
-                <div className="item-specials flex flex-row space-x-2">
-                    {new Date(product.created) > removeDays(7) ? <span className="w-min px-2 text-xs flex items-center text-center rounded-xl badge-blue">New</span> : ""}
-                    {product?.discount > 0 ? <span className="w-min px-2 text-xs flex items-center text-center rounded-xl badge-red ms-2">Discount</span> : ""}
+            <div className="p-4">
+                <div className="relative">
+                    <div className="item-specials flex flex-row space-x-2">
+                        {new Date(product.created) > removeDays(7) ? <span className="w-min px-2 text-xs flex items-center text-center rounded-xl badge-blue">New</span> : ""}
+                        {product?.discount > 0 ? <span className="w-min px-2 text-xs flex items-center text-center rounded-xl badge-red ms-2">Discount</span> : ""}
+                    </div>
                 </div>
+                <img src={product?.images[0]} className="image-fit" alt="" />
                 <div className="container-fluid mt-2 px-0">
                     <div className="row">
                         <div className="col-12">
@@ -43,24 +45,21 @@ function ShopItem(props) {
                     </div>
                 </div>
             </div>
-            <div className="card-footer rounded-bl rounded-br item-price bg-lightblue flex flex-row justify-between items-center py-0 px-2">
-                <div className="col-2 d-flex align-items-center animate">
-                    <h5 className="text-darkblue d-flex align-items-center mb-0">
-
+            <div className="card-footer rounded-bl rounded-br item-price bg-lightblue flex flex-row justify-between items-center py-0 px-3">
+                <div className="col-2 flex items-center animate">
+                    <h5 className="text-darkblue flex items-center mb-0">
                         {cart.filter(x => x._id === product._id).length > 0 ?
                             <CartRemove className="item-icon" onClick={() => handleRemoveFromCart()} /> :
                             <CartAdd className="item-icon" onClick={() => handleAddToCart()} />
                         }
                     </h5>
                 </div>
-                <div className="col-10 d-flex justify-content-end ">
+                <div className="col-10 flex justify-content-end ">
                     <h5 className="text-darkblue item-pricetag mb-0">
                         {product?.discount > 0 ? <span>{product.discount}€ <small className="text-strikethrough text-red">{product.price}€</small></span> : product.price + " €"}
-
                     </h5>
                 </div>
             </div>
-
         </div>
     );
 }

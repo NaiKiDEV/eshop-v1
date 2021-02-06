@@ -16,21 +16,21 @@ function Home() {
     // console.log(products)
 
     return (
-        <div className="grid grid-cols-12 grid-flow-col h-full gap-4">
-            <div className="col-span-2 bg-darkblue p-4">
+        <div className="grid grid-cols-12 grid-flow-col h-5/6 gap-4 flex-grow">
+            <div className="hidden lg:block col-span-2 bg-darkblue p-4">
                 <h4 className="text-blue mb-3">Filter items</h4>
                 <h6 className="text-blue">Search:</h6>
-                <input className="form-control mb-2 py-1 px-1" type="text"></input>
+                <input className="w-full form-control mb-2 py-1 px-1" type="text"></input>
                 <h6 className="text-blue">Tags:</h6>
-                <div className="flex flex-row space-x-2">
-                    <div className="w-min px-2 py-1 text-xs flex items-center text-center rounded-xl badge-blue">New</div>
-                    <div className="w-min px-2 py-1 text-xs flex items-center text-center rounded-xl badge-red">Discount</div>
-                    <div className="w-min px-2 py-1 text-xs flex items-center text-center rounded-xl badge-green">PROMO</div>
+                <div className="flex flex-row flex-wrap">
+                    <div className="w-min mr-2 mt-2 px-2 py-1 text-xs flex items-center text-center rounded-xl badge-blue">New</div>
+                    <div className="w-min mr-2 mt-2 px-2 py-1 text-xs flex items-center text-center rounded-xl badge-red">Discount</div>
+                    <div className="w-min mr-2 mt-2 px-2 py-1 text-xs flex items-center text-center rounded-xl badge-green">PROMO</div>
                 </div>
 
                 <h6 className="text-blue mt-2">Price:</h6>
             </div>
-            <Scrollbar
+            {/* <Scrollbar
                 contentProps={{
                     renderer: props => {
                         const { elementRef, ...restProps } = props;
@@ -40,7 +40,12 @@ function Home() {
 
                 className="col-span-10 mb-5">
                 {products?.map(product => <ShopItem product={product}></ShopItem>)}
-            </Scrollbar>
+            </Scrollbar> */}
+            <div className="col-span-10 col-start-2 lg:col-start-3 overflow-y-scroll">
+                <div className="grid grid-cols-2 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 grid-flow-row gap-4 pr-4 mt-3 mb-5">
+                    {products?.map(product => <ShopItem key={product._id} product={product}></ShopItem>)}
+                </div>
+            </div>
         </div>
     );
 }

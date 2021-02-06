@@ -33,7 +33,7 @@ function Login() {
     }
 
     return (
-        <div className="">
+        <div className="flex-grow">
             <div className="flex mt-5 justify-center items-center">
                 <div className="card flex flex-col px-5 shadow-lg">
                     <div className="col-12 text-center mt-2 mb-3">
@@ -61,7 +61,7 @@ function Login() {
                         <small className="text-mutedblue"><Link className="text-mutedblue fst-italic" to="/forgotpassword">Forgot password?</Link></small>
                     </div>
                     <div className="w-full mb-4">
-                        <button className="btn btn-red btn-register text-uppercase letter-shadow-sm shadow py-1" onClick={() => onSubmit()}>Login</button>
+                        <button className="btn btn-red btn-register text-uppercase w-full letter-shadow-sm shadow py-1" onClick={() => onSubmit()}>Login</button>
                     </div>
                 </div>
             </div>

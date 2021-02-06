@@ -29,7 +29,7 @@ function Register() {
     }
 
     return (
-        <div className="">
+        <div className="flex-grow">
             <div className="flex mt-5 justify-center items-center">
                 <div className="card flex flex-col px-5 shadow-lg">
                     <div className="text-center mt-2 mb-3">
@@ -75,7 +75,7 @@ function Register() {
                         <small className="text-mutedblue">By pressing Register, you are accepting to our Terms and conditions.</small>
                     </div>
                     <div className="mb-4 w-full">
-                        <button className="btn btn-blue btn-register text-uppercase rounded letter-shadow-sm shadow py-1" onClick={() => onSubmit()}>Register</button>
+                        <button className="btn btn-blue btn-register text-uppercase rounded w-full letter-shadow-sm shadow py-1" onClick={() => onSubmit()}>Register</button>
                     </div>
                 </div>
             </div>
