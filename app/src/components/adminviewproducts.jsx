@@ -14,17 +14,8 @@ function Home() {
     console.log(products)
 
     return (
-        <div>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 ">
-                        <div className="row">
-                            {products?.map(product => <AdminShopItem product={product}></AdminShopItem>)}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div className="grid grid-cols-12 grid-flow-row gap-4 self-start">
+            {products?.map(product => <AdminShopItem product={product}></AdminShopItem>)}
         </div>
     );
 }

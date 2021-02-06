@@ -15,3 +15,9 @@ export const UPDATE_CART_END = 'product/UPDATE_CART_END';
 
 export const REMOVE_PRODUCT = 'product/REMOVE_PRODUCT';
 export const REMOVE_PRODUCT_END = 'product/REMOVE_PRODUCT_END';
+
+export const UPDATE_PRODUCT = 'product/UPDATE_PRODUCT';
+export const UPDATE_PRODUCT_END = 'product/UPDATE_PRODUCT_END';
+
+export const CLEAR_MESSAGE = 'product/CLEAR_MESSAGE';
+export const CLEAR_MESSAGE_END = 'product/CLEAR_MESSAGE_END';

@@ -9,3 +9,9 @@ export const getAllProductsApi = () => {
 export const addProductApi = (productData) => {
   return httpClient.post(`products/create`, productData);
 };
+export const removeProductApi = (productId) => {
+  return httpClient.post(`products/delete`, { _id: productId });
+};
+export const updateProductApi = (productData) => {
+  return httpClient.post(`products/update`, productData);
+};

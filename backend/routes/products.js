@@ -24,7 +24,7 @@ router.get('/all', function (req, res, next) {
             }
             if (products.length > 0) {
                 res.status(200).send(products.map(product => { return { ...product } }))
-                console.log("All products:", products)
+                // console.log("All products:", products)
             } else {
                 res.status(200).send({ error: 1, message: "There are no products." })
             }
@@ -124,7 +124,7 @@ router.post('/create', (req, res) => {
                                 res.status(200).send({ message: "Product added successfully.", ok: 1 })
                                 console.log("Product added successfully.")
                             } else {
-                                res.status(200).send({ message: "Product wasn't added.", error: 1 })
+                                res.status(400).send({ message: "Product wasn't added.", error: 1 })
                                 console.log("Product wasn't added.")
                             }
                         }
@@ -132,6 +132,61 @@ router.post('/create', (req, res) => {
                 } else {
                     res.status(200).send({ message: "Product with that name already exists.", error: 1 })
                     console.log("Product with that name already exists.")
+                }
+            })
+        })
+    } catch (e) {
+        res.status(400).send({ message: "Incorrect data format.", error: 1 })
+        return
+    }
+
+})
+router.post('/update', (req, res) => {
+    console.log("Request with body:", req.body)
+    try {
+        const updatedProduct = req.body
+        const { _id } = req.body
+        MongoClient.connect(DB_FULLURL, function (err, client) {
+            if (err) {
+                console.log("[SERVER] connection failed")
+                res.status(400).send("Failed to connect to server.")
+                return
+                // throw err
+            }
+            // Get db
+            var db = client.db(DB_NAME)
+            // Try to find if there are users with given email
+            db.collection('products').find({ _id: new ObjectID(_id) }).toArray((err, result) => {
+                if (err) {
+                    console.log("[SERVER] users db error")
+                    res.status(400).send("Failed to connect to users database.")
+                    return
+                    // throw err
+                }
+                console.log("Found users with given email ", result.length)
+                // If there are no users with given email
+                if (result.length === 1) {
+                    db.collection('products').updateOne(
+                        { _id: new ObjectID(_id) },
+                        { $set: {...updatedProduct,
+                            _id: new ObjectID(_id)} },
+                        { upsert: false }
+                        )
+                        .then(response => JSON.parse(response))
+                        .then(response => {
+                            console.log(response)
+                            if (response.modifiedCount > 0) {
+                                res.status(200).send({ message: "Product updated successfully.", ok: 1 })
+                                console.log("Product updated successfully.")
+                            } else {
+                                res.status(400).send({ message: "Product wasn't updated.", error: 1 })
+                                console.log("Product wasn't updated.")
+                            }
+                        }
+                        )
+                } else {
+                    res.status(200).send({ message: "Product doesn't exists." + _id, error: 1 })
+                    console.log("Product doesn't exists.")
                 }
             })
         })

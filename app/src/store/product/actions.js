@@ -8,7 +8,13 @@ import {
   REMOVE_FROM_CART,
   REMOVE_FROM_CART_END,
   UPDATE_CART,
-  UPDATE_CART_END
+  UPDATE_CART_END,
+  REMOVE_PRODUCT,
+  REMOVE_PRODUCT_END,
+  CLEAR_MESSAGE,
+  CLEAR_MESSAGE_END,
+  UPDATE_PRODUCT,
+  UPDATE_PRODUCT_END
 } from './actionTypes';
 
 export const getAllProducts = () => ({
@@ -26,6 +32,23 @@ export const addProductEnd = (response) => ({
   type: ADD_PRODUCT_END,
   payload: response,
 });
+export const updateProduct = (productData) => ({
+  type: UPDATE_PRODUCT,
+  payload: productData
+});
+export const updateProductEnd = (response) => ({
+  type: UPDATE_PRODUCT_END,
+  payload: response,
+});
+
+export const removeProduct = (productId) => ({
+  type: REMOVE_PRODUCT,
+  payload: productId
+});
+export const removeProductEnd = (response) => ({
+  type: REMOVE_PRODUCT_END,
+  payload: response
+});
 
 export const addToCart = (productData) => ({
   type: ADD_TO_CART,
@@ -35,6 +58,7 @@ export const addToCartEnd = (productData) => ({
   type: ADD_TO_CART_END,
   payload: productData
 });
+
 export const removeFromCart = (productId) => ({
   type: REMOVE_FROM_CART,
   payload: productId
@@ -50,4 +74,11 @@ export const updateCart = (cartItem) => ({
 export const updateCartEnd = (cartItem) => ({
   type: UPDATE_CART_END,
   payload: cartItem
+});
+
+export const clearMessage = () => ({
+  type: CLEAR_MESSAGE,
+});
+export const clearMessageEnd = () => ({
+  type: CLEAR_MESSAGE_END,
 });

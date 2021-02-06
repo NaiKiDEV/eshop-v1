@@ -4,13 +4,20 @@ import {
 	ADD_PRODUCT,
 	ADD_TO_CART_END,
 	REMOVE_FROM_CART_END,
-	UPDATE_CART_END
+	UPDATE_CART_END,
+	REMOVE_PRODUCT,
+	REMOVE_PRODUCT_END,
+	CLEAR_MESSAGE_END,
+	UPDATE_PRODUCT,
+	UPDATE_PRODUCT_END
 } from './actionTypes';
 
 const initialState = {
 	products: [],
-	productcode: null,
-	productmessage: "",
+	productAdminAction: {
+		productCode: null,
+		productMessage: "",
+	},
 	cart: []
 };
 
@@ -48,17 +55,71 @@ const reducer = (state = initialState, action) => {
 		case ADD_PRODUCT: {
 			return {
 				...state,
-				productcode: null,
-				productmessage: ""
+				productAdminAction: {
+					productCode: null,
+					productMessage: "",
+				},
+			}
+		}
+		
+		case REMOVE_PRODUCT: {
+			return {
+				...state,
+				productAdminAction: {
+					productCode: null,
+					productMessage: "",
+				},
+			}
+		}
+
+		case REMOVE_PRODUCT_END: {
+			return {
+				...state,
+				productAdminAction: {
+					productMessage: action.payload.message,
+					productCode: action.payload.error ? 0 : 1
+				},
+				
+			}
+		}
+		case UPDATE_PRODUCT: {
+			return {
+				...state,
+				productAdminAction: {
+					productCode: null,
+					productMessage: "",
+				},
+			}
+		}
+
+		case UPDATE_PRODUCT_END: {
+			return {
+				...state,
+				productAdminAction: {
+					productMessage: action.payload.message,
+					productCode: action.payload.error ? 0 : 1
+				},
+				
 			}
 		}
 		case ADD_PRODUCT_END: {
 			return {
 				...state,
-				productcode: action.payload.error ? 0 : 1,
-				productmessage: action.payload.message
+				productAdminAction: {
+					productMessage: action.payload.message,
+					productCode: action.payload.error ? 0 : 1
+				},
 			}
 		}
+		case CLEAR_MESSAGE_END: {
+			return {
+			  ...state,
+			  productAdminAction: {
+				productMessage: "",
+				productCode: null
+			},
+			}
+		  }
 		default: {
 			return state;
 		}

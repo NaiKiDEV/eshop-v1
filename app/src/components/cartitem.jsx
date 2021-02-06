@@ -17,37 +17,33 @@ function CartItem({ product }) {
     }
 
     return (
-        <div className="text-blue py-2 px-2">
-            <div className="container">
-                <div className="row">
-                    <div className="col-3 pe-0 ps-2">
-                        <img src={product.images[0]} className="cart-image" alt="" />
-                    </div>
-                    <div className="col-7">
-                        <div className="row h-100">
-                            <div className="col-12 letter-shadow-sm lh-1">
-                                {product.name}
-                            </div>
-                            <div className="col-12 d-flex align-items-end text-lightblue">
-                                Qty: {product.quantity}
-                            </div>
+        <div className="text-blue py-2 px-4">
+            <div className="grid grid-cols-12">
+                <div className="col-span-3">
+                    <img src={product.images[0]} className="cart-image" alt="" />
+                </div>
+                <div className="col-span-7 px-1">
+                    <div className="row h-100">
+                        <div className="col-12 letter-shadow-sm lh-1">
+                            {product.name}
+                        </div>
+                        <div className="col-12 d-flex align-items-end text-lightblue">
+                            Qty: {product.quantity}
                         </div>
                     </div>
-                    <div className="col-2 justify-content-end text-lightblue">
-                        <div className="row h-100">
-                            <div className="col-12 d-flex justify-content-end lh-1 letter-shadow-sm">
-                                {product.discount && product.discount > 0 ? product.discount : product.price}€
+                </div>
+                <div className="col-span-2 justify-content-end text-lightblue">
+                    <div className="row h-100">
+                        <div className="col-12 d-flex justify-content-end lh-1 letter-shadow-sm">
+                            {product.discount && product.discount > 0 ? product.discount : product.price}€
                             </div>
-                            <div className="col-12 d-flex align-items-center justify-content-between">
-                                <MinusIcon onClick={(e) => handleCartUpdateSubract(e)} />
-                                <PlusIcon onClick={(e) => handleCartUpdateAdd(e)} />
-                            </div>
+                        <div className="col-12 d-flex align-items-center justify-content-between">
+                            <MinusIcon onClick={(e) => handleCartUpdateSubract(e)} />
+                            <PlusIcon onClick={(e) => handleCartUpdateAdd(e)} />
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

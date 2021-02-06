@@ -3,21 +3,30 @@
 import { takeLatest, call, put, debounce } from 'redux-saga/effects';
 import {
   getAllProductsApi,
-  addProductApi
+  addProductApi,
+  removeProductApi,
+  updateProductApi
 } from './api';
 import {
   GET_ALL_PRODUCTS,
   ADD_PRODUCT,
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  UPDATE_CART
+  UPDATE_CART,
+  REMOVE_PRODUCT,
+  UPDATE_PRODUCT,
+  REMOVE_PRODUCT_END,
+  UPDATE_PRODUCT_END,
 } from './actionTypes';
 import {
   getAllProductsEnd,
   addProductEnd,
   addToCartEnd,
   removeFromCartEnd,
-  updateCartEnd
+  updateCartEnd,
+  removeProductEnd,
+  clearMessageEnd,
+  updateProductEnd
 } from './actions';
 
 
@@ -33,6 +42,22 @@ export function* addProductSaga(action) {
   try {
     const apiResult = yield call(addProductApi, action.payload);
     yield put(addProductEnd(apiResult));
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
+export function* updateProductSaga(action) {
+  try {
+    const apiResult = yield call(updateProductApi, action.payload);
+    yield put(updateProductEnd(apiResult));
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
+export function* removeProductSaga(action) {
+  try {
+    const apiResult = yield call(removeProductApi, action.payload);
+    yield put(removeProductEnd(apiResult));
   } catch (e) {
     // stops saga from breaking on api error
   }
@@ -66,6 +91,13 @@ export function* updateCartSaga(action) {
   }
 }
 
+export function* clearMessageSaga(action) {
+  try {
+    yield put(clearMessageEnd());
+  } catch (e) {
+    // stops saga from breaking on api error
+  }
+}
 
 export default function* () {
   yield takeLatest(GET_ALL_PRODUCTS, getAllProductsSaga);
@@ -73,5 +105,12 @@ export default function* () {
   yield takeLatest(ADD_TO_CART, addToCartSaga);
   yield takeLatest(REMOVE_FROM_CART, removeFromCartSaga);
   yield takeLatest(UPDATE_CART, updateCartSaga);
+  yield takeLatest(REMOVE_PRODUCT, removeProductSaga);
+  yield takeLatest(UPDATE_PRODUCT, updateProductSaga);
+  yield takeLatest(UPDATE_PRODUCT_END, getAllProductsSaga);
+  yield takeLatest(REMOVE_PRODUCT_END, getAllProductsSaga);
+  yield debounce(2000, REMOVE_PRODUCT, clearMessageSaga);
+  yield debounce(2000, UPDATE_PRODUCT, clearMessageSaga);
+  yield debounce(2000, ADD_PRODUCT, clearMessageSaga);
 }
 

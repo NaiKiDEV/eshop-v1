@@ -1,11 +1,11 @@
 import './App.css';
-import './styles.scss';
 import Home from './pages/home'
 import Register from './pages/register'
 import Login from './pages/login'
 import { Router, Route, Switch } from 'react-router-dom'
 import history from './core/history'
 import Navbar from './features/navbar'
+import Footer from './features/Footer'
 import AdminPage from './pages/adminpage'
 import { useSelector } from 'react-redux'
 
@@ -30,6 +30,7 @@ function App() {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/admin" component={AdminAccessArea} />
 			</Switch>
+			<Footer/>
 		</Router>
 	);
 }
