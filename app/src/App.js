@@ -7,6 +7,7 @@ import history from './core/history'
 import Navbar from './features/navbar'
 import Footer from './features/Footer'
 import AdminPage from './pages/adminpage'
+import SingleItem from './pages/singleitem'
 import { useSelector } from 'react-redux'
 
 function AdminAccessArea() {
@@ -29,6 +30,7 @@ function App() {
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/admin" component={AdminAccessArea} />
+				<Route exact path="/product/:id" component={SingleItem} />
 			</Switch>
 			<Footer/>
 		</Router>

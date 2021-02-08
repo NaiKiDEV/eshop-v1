@@ -33,6 +33,8 @@ function AdminPage() {
             return <AdminViewProducts />
         } else if (currentMenu.vieworders === true) {
             return <h5 className="text-white text-5xl">OPENED VIEW ORDERS PAGE</h5>
+        } else {
+            return <h5 className="text-white text-5xl text-center">Select action from the admin panel!<br />{"<--"}</h5>
         }
     }
     return (

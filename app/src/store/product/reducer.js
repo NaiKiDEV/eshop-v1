@@ -9,7 +9,9 @@ import {
 	REMOVE_PRODUCT_END,
 	CLEAR_MESSAGE_END,
 	UPDATE_PRODUCT,
-	UPDATE_PRODUCT_END
+	UPDATE_PRODUCT_END,
+	GET_SINGLE_PRODUCT,
+	GET_SINGLE_PRODUCT_END
 } from './actionTypes';
 
 const initialState = {
@@ -18,6 +20,7 @@ const initialState = {
 		productCode: null,
 		productMessage: "",
 	},
+	singleproduct: null,
 	cart: []
 };
 
@@ -42,6 +45,12 @@ const reducer = (state = initialState, action) => {
 		}
 		case ADD_TO_CART_END: {
 			return { ...state, cart: [...state.cart, action.payload] }
+		}
+		case GET_SINGLE_PRODUCT: {
+			return { ...state, singleproduct: null }
+		}
+		case GET_SINGLE_PRODUCT_END: {
+			return { ...state, singleproduct: action.payload.error ? null : action.payload }
 		}
 		case REMOVE_FROM_CART_END: {
 			return { ...state, cart: state.cart.filter(x => x._id !== action.payload) }

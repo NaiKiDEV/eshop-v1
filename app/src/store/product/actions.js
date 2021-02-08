@@ -14,7 +14,9 @@ import {
   CLEAR_MESSAGE,
   CLEAR_MESSAGE_END,
   UPDATE_PRODUCT,
-  UPDATE_PRODUCT_END
+  UPDATE_PRODUCT_END,
+  GET_SINGLE_PRODUCT,
+  GET_SINGLE_PRODUCT_END
 } from './actionTypes';
 
 export const getAllProducts = () => ({
@@ -24,6 +26,15 @@ export const getAllProductsEnd = (products) => ({
   type: GET_ALL_PRODUCTS_END,
   payload: products,
 });
+export const getSingleProduct = (productId) => ({
+  type: GET_SINGLE_PRODUCT,
+  payload: productId
+});
+export const getSingleProductEnd = (product) => ({
+  type: GET_SINGLE_PRODUCT_END,
+  payload: product,
+});
+
 export const addProduct = (productData) => ({
   type: ADD_PRODUCT,
   payload: productData

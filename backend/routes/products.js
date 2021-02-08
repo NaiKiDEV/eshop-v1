@@ -32,6 +32,35 @@ router.get('/all', function (req, res, next) {
     })
 });
 
+router.post('/product', function (req, res, next) {
+    const { _id } = req.body
+    MongoClient.connect(DB_FULLURL, (err, client) => {
+        if (err) {
+            console.log("[SERVER] connection failed")
+            res.status(400).send({ message: "Failed to connect to the server.", error: 1 })
+        }
+        var db = client.db(DB_NAME)
+
+        try {
+            db.collection('products').findOne({_id: new ObjectID(_id)})
+            .then(
+                response => {
+                    if(response){
+                        res.status(200).send(response)
+                    }else{
+                        res.status(404).send({message: "Product not found", error: 1})
+                    }
+                    
+                }
+            ).catch(err => {res.status(400).send({message: "Bad request!", error: 1})})
+        } catch (error) {
+            console.log(error)
+            res.status(400).send({message: "Bad request!", error: 1})
+        }
+       
+    })
+});
+
 router.post('/delete', (req, res) => {
     console.log("Request with body:", req.body)
     const { _id, name } = req.body // Only need 1 to identify the item, both are unique
@@ -86,7 +115,7 @@ router.post('/delete', (req, res) => {
 router.post('/create', (req, res) => {
     console.log("Request with body:", req.body)
     try {
-        const { name, price, description, categories, stock, images } = req.body
+        const { name, price, description, fulldescription, categories, stock, images } = req.body
         MongoClient.connect(DB_FULLURL, function (err, client) {
             if (err) {
                 console.log("[SERVER] connection failed")
@@ -112,6 +141,7 @@ router.post('/create', (req, res) => {
                             name,
                             price,
                             description,
+                            fulldescription,
                             categories,
                             images,
                             stock,

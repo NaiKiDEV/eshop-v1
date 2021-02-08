@@ -164,6 +164,8 @@ label {
     }
 }
 
+
+
 .border-radius {
     border-radius: $borderradius;
 }
@@ -280,6 +282,17 @@ a {
     object-fit: cover;
 }
 
+.image-display {
+    height: 70px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.image-adapt {
+    width: 100%;
+    object-fit: cover;
+}
+
 .item-name {
     height: 30px;
     display: flex;
@@ -338,16 +351,42 @@ a {
 .item-icon {
     height: 20px;
     width: 20px;
-    color: $darkblue;
     transition: 0.2s ease;
 
-    &:hover {
+    &.item-red:hover {
         color: $red !important;
         cursor: pointer;
     }
 
-    &.active {
+    &.item-red.active {
         color: $red !important;
+    }
+
+    &.item-mutedblue:hover {
+        color: $mutedblue !important;
+        cursor: pointer;
+    }
+
+    &.item-mutedblue.active {
+        color: $mutedblue !important;
+    }
+
+    &.item-blue:hover {
+        color: $blue !important;
+        cursor: pointer;
+    }
+
+    &.item-blue.active {
+        color: $blue !important;
+    }
+
+    &.item-darkgreen:hover {
+        color: $darkgreen !important;
+        cursor: pointer;
+    }
+
+    &.item-darkgreen.active {
+        color: $darkgreen !important;
     }
 }
 
@@ -475,6 +514,51 @@ svg {
     /* Firefox */
     -ms-overflow-style: none;
     /* Internet Explorer 10+ */
+}
+
+.slide-right {
+    width: 0rem;
+
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+
+    .btn {
+        width: 0rem;
+    }
+
+    input {
+        width: 0rem;
+    }
+
+    * {
+        width: 0rem;
+    }
+
+    &.slide {
+        width: auto;
+
+        &.slide-admin {
+            width: 3rem;
+        }
+
+        .btn {
+            width: 24px;
+        }
+
+        input {
+            width: 4rem;
+        }
+
+        * {
+            width: inherit;
+        }
+    }
+
+}
+
+.border-darkblue {
+    border-color: $darkblue;
 }
 
 ::-webkit-scrollbar {

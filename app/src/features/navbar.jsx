@@ -52,7 +52,7 @@ function Navbar() {
     }
 
     return (
-        <nav className="navbar shadow-sm sticky h-14 flex-none" >
+        <nav className="navbar shadow sticky h-14 flex-none" >
             <div className="grid grid-cols-12 flex-row justify-between items-center h-full">
                 <div className="col-start-2 col-end-6 flex flex-row ">
                     <span className="navbar-brand text-lightblue mb-0"><Link to="/">SHOP</Link></span>

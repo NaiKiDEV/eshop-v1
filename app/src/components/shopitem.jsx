@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaRegPlusSquare as CartAdd, FaRegMinusSquare as CartRemove } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../store/product/actions';
 
 function ShopItem(props) {
@@ -33,17 +34,19 @@ function ShopItem(props) {
                         {product?.discount > 0 ? <span className="w-min px-2 text-xs flex items-center text-center rounded-xl badge-red ms-2">Discount</span> : ""}
                     </div>
                 </div>
-                <img src={product?.images[0]} className="image-fit" alt="" />
-                <div className="container-fluid mt-2 px-0">
-                    <div className="row">
-                        <div className="col-12">
-                            <h6 className="text-blue item-name letter-shadow-sm">{product.name}</h6>
-                        </div>
-                        <div className="col-12">
-                            <p className="text-lightblue item-description leading-none">{product.description}</p>
+                <Link to={"/product/" + product._id}>
+                    <img src={product?.images[0]} className="image-fit" alt="" />
+                    <div className="container-fluid mt-2 px-0">
+                        <div className="row">
+                            <div className="col-12">
+                                <h6 className="text-blue item-name letter-shadow-sm">{product.name}</h6>
+                            </div>
+                            <div className="col-12">
+                                <p className="text-lightblue item-description leading-none">{product.description}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
             <div className="card-footer rounded-bl rounded-br item-price bg-lightblue flex flex-row justify-between items-center py-0 px-3">
                 <div className="col-2 flex items-center animate">

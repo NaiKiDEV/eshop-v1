@@ -5,6 +5,9 @@ import httpClient from '../../core/httpClient';
 export const getAllProductsApi = () => {
   return httpClient.get(`products/all`);
 };
+export const getSingleProductApi = (productId) => {
+  return httpClient.post(`products/product`, {_id: productId});
+};
 
 export const addProductApi = (productData) => {
   return httpClient.post(`products/create`, productData);

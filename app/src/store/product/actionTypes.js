@@ -1,6 +1,9 @@
 export const GET_ALL_PRODUCTS = 'product/GET_ALL_PRODUCTS';
 export const GET_ALL_PRODUCTS_END = 'product/GET_ALL_PRODUCTS_END';
 
+export const GET_SINGLE_PRODUCT = 'product/GET_SINGLE_PRODUCT';
+export const GET_SINGLE_PRODUCT_END = 'product/GET_SINGLE_PRODUCT_END';
+
 export const ADD_PRODUCT = 'product/ADD_PRODUCT';
 export const ADD_PRODUCT_END = 'product/ADD_PRODUCT_END';
 
