@@ -52,8 +52,8 @@ function ShopItem(props) {
                 <div className="col-2 flex items-center animate">
                     <h5 className="text-darkblue flex items-center mb-0">
                         {cart.filter(x => x._id === product._id).length > 0 ?
-                            <CartRemove className="item-icon" onClick={() => handleRemoveFromCart()} /> :
-                            <CartAdd className="item-icon" onClick={() => handleAddToCart()} />
+                            <CartRemove className="item-icon item-red" onClick={() => handleRemoveFromCart()} /> :
+                            <CartAdd className="item-icon item-mutedblue" onClick={() => handleAddToCart()} />
                         }
                     </h5>
                 </div>

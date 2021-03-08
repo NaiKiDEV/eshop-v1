@@ -23,21 +23,21 @@ function CartItem({ product }) {
                     <img src={product.images[0]} className="cart-image" alt="" />
                 </div>
                 <div className="col-span-7 px-1">
-                    <div className="row h-100">
-                        <div className="col-12 letter-shadow-sm lh-1">
+                    <div className="flex flex-col justify-between h-full">
+                        <div className="flex flex-grow letter-shadow-sm leading-none">
                             {product.name}
                         </div>
-                        <div className="col-12 d-flex align-items-end text-lightblue">
+                        <div className="flex text-lightblue">
                             Qty: {product.quantity}
                         </div>
                     </div>
                 </div>
                 <div className="col-span-2 justify-content-end text-lightblue">
-                    <div className="row h-100">
-                        <div className="col-12 d-flex justify-content-end lh-1 letter-shadow-sm">
+                    <div className="flex flex-col justify-between h-full">
+                        <div className="flex justify-end leading-none letter-shadow-sm">
                             {product.discount && product.discount > 0 ? product.discount : product.price}€
                             </div>
-                        <div className="col-12 d-flex align-items-center justify-content-between">
+                        <div className="flex items-center justify-end">
                             <MinusIcon onClick={(e) => handleCartUpdateSubract(e)} />
                             <PlusIcon onClick={(e) => handleCartUpdateAdd(e)} />
                         </div>
